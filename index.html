@@ -13,9 +13,9 @@
 
   <!-- ========== HOME ========== -->
   <section class="hero">
-    <nav class="hero-nav">
+    <nav class="hero-nav" aria-label="Principal">
       <div class="hero-brand">
-        <img src="img/Twenty-One-Pilots-Logo-removebg-preview.png" />
+        <img src="img/Twenty-One-Pilots-Logo-removebg-preview.png" alt="Twenty One Pilots" />
       </div>
 
       <ul class="hero-menu">
@@ -26,20 +26,34 @@
         <li><a href="#contact">CONTACT</a></li>
       </ul>
 
-      <div class="hero-icons">
-        <img src="img/union-europea.png" class="icon" />
-        <img src="img/carro.png" class="icon icon-red-filter" />
-        <img src="img/usuario.png" class="icon icon-red-filter" />
+      <div class="hero-icons" aria-hidden="true">
+        <img src="img/union-europea.png" class="icon" alt="EU" />
+        <img src="img/carro.png" class="icon icon-red-filter" alt="Cart" />
+        <img src="img/usuario.png" class="icon icon-red-filter" alt="User" />
       </div>
     </nav>
+    <!-- Center hamburger on mobile (CSS-only: checkbox hack) -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true" />
+    <label for="nav-toggle" class="hamburger" aria-label="Abrir menú" role="button">
+      <span class="lines"></span>
+    </label>
+
+    <div id="mobileMenu" class="mobile-menu" role="dialog" aria-modal="true">
+      <a href="#home">HOME</a>
+      <a href="#biography">BIOGRAPHY</a>
+      <a href="#albums">ALBUMS</a>
+      <a href="#ontour">ON TOUR</a>
+      <a href="#contact">CONTACT</a>
+    </div>
 
     <div class="hero-content">
       <h1>TWENTY ONE PILOTS</h1>
       <a href="#ontour" class="cta">BREACH TOUR</a>
     </div>
 
-    <div class="hero-background"></div>
+    <div class="hero-background" aria-hidden="true"></div>
   </section>
+
 
   <!-- ========== AWARDS ========== -->
 

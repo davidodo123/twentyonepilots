@@ -1,0 +1,128 @@
+<!-- index.html (responsive update with mobile hamburger) -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Twenty One Pilots — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <!-- Inline styles for now so you can test fast on device -->
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+  :root { --main-color: black; --text-light: white; --accent: #B93C2D; --muted: #bbbbbb; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { font-family: 'Bebas Neue'; height: 100%; background: var(--main-color); color: var(--text-light); letter-spacing: .5px; }
+
+  /* ================= HERO (FLAT CSS) ================= */
+  .hero { position: relative; min-height: 100vh; display: grid; grid-template-rows: auto 1fr; overflow: hidden; }
+
+  /* -------- NAV DESKTOP -------- */
+  .hero-nav { position: relative; z-index: 3; display: grid; grid-template-columns: 160px 1fr 160px; padding: 20px 16px; align-items: center; }
+  .hero-brand img { height: 48px; display: block; }
+  .hero-menu { font-family: "Lato"; list-style: none; display: flex; justify-content: center; gap: 3rem; }
+  .hero-menu a { font-family: "Lato"; font-size: 16px; letter-spacing: 5px; text-decoration: none; color: var(--muted); }
+  .hero-menu a:hover, .hero-menu a:focus { color: var(--text-light); }
+  .hero-icons { display: flex; justify-content: flex-end; gap: 14px; }
+  .hero-icons .icon { height: 20px; display: block; transition: transform .2s; cursor: pointer; }
+  .hero-icons .icon:hover { transform: scale(1.1); }
+
+  /* -------- HERO CONTENT -------- */
+  .hero-content { position: relative; z-index: 2; display: grid; place-items: center; text-align: center; padding: 6vh 4vw 10vh; gap: 28px; }
+  .hero-content h1 { font-size: 200px; line-height: .9; letter-spacing: 2px; }
+  .hero-content .cta { background: var(--accent); color: #fff; font-family: "Lato"; letter-spacing: 1px; font-size: 16px; text-decoration: none; padding: 15px 32px; border: none; cursor: pointer; margin-bottom: 10rem; }
+  .hero-content .cta:hover { background: transparent; border: 1px solid var(--accent); }
+
+  /* -------- BACKGROUND -------- */
+  .hero-background { position: absolute; inset: 0; z-index: 1; background: url("img/FotoHero.jpg") center/cover no-repeat; opacity: .3; pointer-events: none; }
+
+  /* -------- MOBILE NAV (CSS ONLY) -------- */
+  .nav-toggle { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; border: 0; clip: rect(0 0 0 0); overflow: hidden; }
+
+  .hamburger { display: none; position: relative; z-index: 4; width: 44px; height: 44px; border: 1px solid #444; border-radius: 8px; background: rgba(0,0,0,.6); backdrop-filter: blur(6px); cursor: pointer; align-items: center; justify-content: center; margin: 12px auto 0; }
+  .hamburger .lines { position: relative; width: 24px; height: 2px; background: #fff; transition: transform .25s ease; }
+  .hamburger .lines::before, .hamburger .lines::after { content: ""; position: absolute; left: 0; width: 24px; height: 2px; background: #fff; transition: transform .25s ease, top .25s ease, opacity .2s; }
+  .hamburger .lines::before { top: -7px; }
+  .hamburger .lines::after  { top:  7px; }
+
+  .mobile-menu { position: fixed; inset: 0; background: rgba(0,0,0,.9); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; transform: translateY(-100%); transition: transform .35s ease; z-index: 3; }
+  .mobile-menu a { font-family: "Lato"; font-size: 22px; letter-spacing: 6px; text-decoration: none; color: #e6e6e6; opacity: 0; transform: translateY(10px); }
+
+  /* -------- Checkbox states (structure: input + label + .mobile-menu) -------- */
+  #nav-toggle:checked + .hamburger .lines { background: transparent; }
+  #nav-toggle:checked + .hamburger .lines::before { top: 0; transform: rotate(45deg); }
+  #nav-toggle:checked + .hamburger .lines::after  { top: 0; transform: rotate(-45deg); }
+  #nav-toggle:checked ~ .mobile-menu { transform: translateY(0); }
+  #nav-toggle:checked ~ .mobile-menu a { opacity: 1; transform: translateY(0); transition: opacity .35s ease, transform .35s ease; }
+  #nav-toggle:checked ~ .mobile-menu a:nth-child(1){ transition-delay:.05s; }
+  #nav-toggle:checked ~ .mobile-menu a:nth-child(2){ transition-delay:.10s; }
+  #nav-toggle:checked ~ .mobile-menu a:nth-child(3){ transition-delay:.15s; }
+  #nav-toggle:checked ~ .mobile-menu a:nth-child(4){ transition-delay:.20s; }
+  #nav-toggle:checked ~ .mobile-menu a:nth-child(5){ transition-delay:.25s; }
+
+  /* ================= BREAKPOINTS ================= */
+  @media (max-width: 830px) {
+    .hero-nav { display: none !important; }
+    .hamburger { display: inline-flex !important; }
+    .hero-content h1 { font-size: 64px; }
+    .hero-content .cta { margin-bottom: 2rem; }
+  }
+
+  @media (min-width: 831px) {
+    .mobile-menu { display: none !important; }
+    .hamburger   { display: none !important; }
+  }
+</style>
+</head>
+
+<body>
+  <!-- ========== HOME ========== -->
+  <section class="hero">
+    <nav class="hero-nav" aria-label="Principal">
+      <div class="hero-brand">
+        <img src="img/Twenty-One-Pilots-Logo-removebg-preview.png" alt="Twenty One Pilots" />
+      </div>
+
+      <ul class="hero-menu">
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#biography">BIOGRAPHY</a></li>
+        <li><a href="#albums">ALBUMS</a></li>
+        <li><a href="#ontour">ON TOUR</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+
+      <div class="hero-icons" aria-hidden="true">
+        <img src="img/union-europea.png" class="icon" alt="EU" />
+        <img src="img/carro.png" class="icon icon-red-filter" alt="Cart" />
+        <img src="img/usuario.png" class="icon icon-red-filter" alt="User" />
+      </div>
+    </nav>
+    <!-- Center hamburger on mobile (CSS-only: checkbox hack) -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true" />
+    <label for="nav-toggle" class="hamburger" aria-label="Abrir menú" role="button">
+      <span class="lines"></span>
+    </label>
+
+    <div id="mobileMenu" class="mobile-menu" role="dialog" aria-modal="true">
+      <a href="#home">HOME</a>
+      <a href="#biography">BIOGRAPHY</a>
+      <a href="#albums">ALBUMS</a>
+      <a href="#ontour">ON TOUR</a>
+      <a href="#contact">CONTACT</a>
+    </div>
+
+    <div class="hero-content">
+      <h1>TWENTY ONE PILOTS</h1>
+      <a href="#ontour" class="cta">BREACH TOUR</a>
+    </div>
+
+    <div class="hero-background" aria-hidden="true"></div>
+  </section>
+
+  <!-- Resto de secciones de tu HTML original aquí… (no modificadas aún para móvil) -->
+
+  
+</body>
+</html>
