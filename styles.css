@@ -250,13 +250,10 @@ body {
   }
 }
 
-/* ====== MÓVIL: logo izq, hamburguesa dcha, fondo responsive ====== */
 @media (max-width: 830px) {
   .hero {
-    /* Volvemos a usar la fila del nav para que el logo quede arriba */
     grid-template-rows: auto 1fr;
 
-    /* Mostramos solo la marca (logo) en el nav, ocultando menú e iconos */
     .hero-nav {
       position: absolute;
       top: 0;
@@ -274,31 +271,24 @@ body {
         display: block;
       }
 
-      /* logo a la izquierda */
       .hero-menu,
       .hero-icons {
         display: none !important;
       }
 
-      /* ocultar menú e iconos */
     }
 
-    /* Hamburguesa a la derecha (no en el medio) */
     .hamburger {
       position: absolute;
       top: 12px;
       right: 16px;
-      /* <- a la derecha */
       left: auto;
-      /* no centrada */
       transform: none;
-      /* sin translateX */
       display: inline-flex !important;
       margin: 0;
       z-index: 5;
     }
 
-    /* Empujamos el contenido para que no tape el header (logo+hamburguesa) */
     .hero-content {
       padding: calc(56px + env(safe-area-inset-top)) 6vw 3vh;
       gap: 12px;
@@ -313,13 +303,10 @@ body {
       }
     }
 
-    /* Fondo responsive en móvil */
     .hero-background {
       background-position: center top;
-      /* background-size: cover;  ya viene de arriba */
     }
 
-    /* Menú móvil tal cual (no bloquea clics cuando está cerrado) */
     #nav-toggle:not(:checked)~.mobile-menu {
       transform: translateY(-100%);
       pointer-events: none;
@@ -327,7 +314,6 @@ body {
   }
 }
 
-/* ====== Escritorio: ocultamos UI móvil ====== */
 @media (min-width: 831px) {
   .hero {
     .mobile-menu {
@@ -340,7 +326,6 @@ body {
     }
 
     .hero-background {
-      /* Fondo de escritorio (por si usas otra imagen) */
       background-image: url("img/FotoHero.jpg");
       background-size: cover;
       background-position: center;
@@ -604,61 +589,70 @@ body {
 
   .bio-about-info {
     max-width: 1600px;
-    margin-left: 2.5vw;
+    margin: 3rem 8rem 0;
     text-align: center;
-
-    margin-top: 3rem;
-    margin-left: 10rem;
 
     p {
       font-family: "Lato";
       font-weight: 400;
       font-size: 30px;
-
       line-height: 44px;
-
       color: #e4e4e4;
-      text-align: left;
-
+      text-align: center;
+      margin: 0 auto;
     }
 
     strong {
       color: var(--accent);
     }
 
-  }
-
-  @media(max-width: 1800px) {
-    .red-band {
-      display: none;
-    }
-  }
-
-  @media (max-width: 900px) {
-
-    .bio-header h2 {
-      font-size: 44px;
-      text-align: center;
+    @media(max-width: 1800px) {
+      .red-band {
+        display: none;
+      }
     }
 
-    .bio-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 18px 6vw;
-      gap: 2rem;
+    @media (max-width: 900px) {
 
 
-      .bio-about {
-        order: 1;
-        max-width: 680px;
-        margin: 0 auto;
+
+      .bio-header h2 {
+        font-size: 44px;
         text-align: center;
+      }
 
-        p {
+      .bio-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 18px 6vw;
+        gap: 2rem;
+
+
+        .bio-about {
+          order: 1;
+          max-width: 680px;
+          margin: 0 auto;
+          text-align: center;
+
+          p {
+            font-size: 22px;
+            line-height: 20px;
+            text-align: center;
+          }
+
+        }
+
+        .bio-about-info {
           font-size: 22px;
           line-height: 20px;
           text-align: center;
+          margin: 2rem 2rem 0;
+
+          p {
+            font-size: 20px;
+            line-height: 30px;
+          }
         }
       }
 
@@ -749,6 +743,7 @@ body {
     }
   }
 }
+
 
 
 /*NO IA*/
