@@ -1108,10 +1108,6 @@ body {
 
 
 
-}
-
-
-
 @media (max-width: 768px) {
 
   .albums {
@@ -1173,6 +1169,10 @@ body {
     max-width: 340px;
   }
 }
+
+}
+
+
 
 /* ================= ON TOUR ================= */
 .ontour {
