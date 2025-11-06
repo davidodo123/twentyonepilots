@@ -256,7 +256,7 @@ body {
 
   @media (max-width: 830px) {
 
-    & .hero-nav {
+    .hero-nav {
       position: absolute;
       top: 0;
       left: 0;
@@ -268,18 +268,18 @@ body {
       background: transparent;
       z-index: 4;
 
-      & .hero-brand img {
+     .hero-brand img {
         height: 40px;
         display: block;
       }
 
-      & .hero-menu,
-      & .hero-icons {
+       .hero-menu,
+       .hero-icons {
         display: none !important;
       }
     }
 
-    & .hamburger {
+    .hamburger {
       position: absolute;
       top: 12px;
       right: 16px;
@@ -290,21 +290,21 @@ body {
       z-index: 5;
     }
 
-    & .hero-content {
-      padding: calc(56px + env(safe-area-inset-top)) 6vw 3vh;
+     .hero-content {
+      margin-top: 7rem;
       gap: 12px;
 
-      & h1 {
-        font-size: 56px;
+       h1 {
+        font-size: 70px;
         line-height: 1;
       }
 
-      & .cta {
-        margin-bottom: 0;
+       .cta {
+        margin-top: 3rem;
       }
     }
 
-    & .hero-background {
+    .hero-background {
       background-image: url("img/FotoHero.jpg");
       background-size: cover;
       background-position: center top;
@@ -641,13 +641,11 @@ body {
 
   @media (max-width: 900px) {
 
-    /* ---- Encabezado ---- */
     .bio-header h2 {
       font-size: 44px;
       text-align: center;
     }
 
-    /* ---- Contenedor principal ---- */
     .bio-content {
       display: flex;
       flex-direction: column;
@@ -664,7 +662,7 @@ body {
 
         p {
           font-size: 20px;
-          line-height: 20px;
+          line-height: 2rem;
           text-align: center;
         }
       }
@@ -759,13 +757,13 @@ body {
     .bio-about-info{
         order: 2;
         max-width: 680px;
-        margin: 2rem auto;
+        margin: 2rem 2rem 2rem;
         text-align: center;
         line-height: .5rem;
 
         p {
           font-size: 20px;
-          line-height: 20px;
+          line-height: 2rem;
           text-align: center;
         }
       }
