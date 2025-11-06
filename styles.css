@@ -12,8 +12,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  margin: 0;
-  padding: 0;
 }
 
 html,
@@ -29,7 +27,6 @@ body {
 }
 
 .hero {
-  position: relative;
   min-height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr;
@@ -96,7 +93,7 @@ body {
     padding: 6vh 4vw 10vh;
     gap: 28px;
 
-    h1 {
+    p {
       font-size: 200px;
       line-height: .9;
       letter-spacing: 2px;
@@ -535,7 +532,7 @@ body {
 
       .red-band {
         position: absolute;
-        right: -110px;
+        right: -100px;
 
         height: 666px;
         width: 375px;
@@ -1347,7 +1344,7 @@ body {
     .tour-img-background {
       position: absolute;
       top: 50%;
-      right: calc(-50vw + 100%);
+      right: -35%;
       transform: translateY(-50%);
       opacity: .2;
       z-index: 0;
@@ -1356,6 +1353,7 @@ body {
         width: 850px;
         height: auto;
         object-fit: contain;
+        margin-bottom: 3.5rem;
       }
 
     }
