@@ -361,23 +361,22 @@ body {
 
   @media (max-width: 900px) {
     .grammy {
+      display: flex;
       flex-direction: column;
       align-items: center;
       padding: 18px 6vw;
       gap: 2rem;
 
       .billboard {
-        width: 100%;
-        max-width: 550px;
-        border-radius: 10px;
-        display: block;
-        opacity: .95;
+        flex: 1 1 100%;
+        min-height: auto;
+        padding: 24px;
       }
 
       .grammy-content {
+        flex: 1 1 100%;
         min-height: auto;
         padding: 24px;
-        font-size: 20px;
       }
     }
   }
@@ -561,19 +560,17 @@ body {
 
   }
 
-  @media(max-width: 1800px) {
-    .red-band {
-      display: none;
-    }
-  }
+
 
   @media (max-width: 900px) {
 
+    /* ---- Encabezado ---- */
     .bio-header h2 {
       font-size: 44px;
       text-align: center;
     }
 
+    /* ---- Contenedor principal ---- */
     .bio-content {
       display: flex;
       flex-direction: column;
@@ -589,7 +586,7 @@ body {
         text-align: center;
 
         p {
-          font-size: 20px;
+          font-size: 14px;
           line-height: 20px;
           text-align: center;
         }
@@ -608,7 +605,9 @@ body {
           height: auto;
         }
 
-
+        .red-band {
+          display: none;
+        }
 
 
       }
@@ -683,10 +682,11 @@ body {
   }
 }
 
-                                                                                                                                                                                                                                                                                                                                              
+
+/*NO IA*/
 .timeline {
   width: 1600px;
-  margin: 7rem 0 0 16rem;
+  margin: 7rem;
 
   display: grid;
   grid-template-columns: 1fr 3px 1fr;
@@ -1109,26 +1109,24 @@ body {
 
 
   .ontour-video {
-  max-width: 960px;
-  margin: 1rem auto 0;
-  padding: 1rem;
-  padding-top: 6rem;
+    max-width: 960px;
+    margin: 1rem auto 0;
+    padding: 1rem;
+    padding-top: 6rem;
 
-  iframe {
-  width: 100%;
-  aspect-ratio: 16/9;
-  height: auto;
-  display: block;
+    iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      height: auto;
+      display: block;
 
-  background: black;
-  border: 0;
-  border-radius: 6px;
+      background: black;
+      border: 0;
+      border-radius: 6px;
 
-  box-shadow: 0 0 10px rgba(0, 0, 0, .25);
-}
-}
-
-
+      box-shadow: 0 0 10px rgba(0, 0, 0, .25);
+    }
+  }
 
 
 
@@ -1248,7 +1246,7 @@ body {
 
 
     h3 {
-      font-size: 60px;
+      font-size: 50px;
       color: #fff;
       margin-bottom: 12px;
       letter-spacing: 1px;
@@ -1298,12 +1296,6 @@ body {
     .tour-info {
       text-align: center;
       margin-left: 0;
-      h3{
-        font-size: 40px;
-      }
-      p{
-        font-size: 20px;
-      }
     }
 
     .tour-image-bg {
@@ -1761,7 +1753,7 @@ body {
       font-family: "Lato";
 
       background: var(--accent);
-      color: white;
+      color: #fff;
       text-decoration: none;
 
       letter-spacing: 1px;
@@ -1925,13 +1917,6 @@ body {
 
     .contact-logos {
       justify-content: center;
-
-      img {
-      height: 70px;
-      width: auto;
-      opacity: 0.9;
-      transition: opacity .2s;
-    }
     }
   }
 }
