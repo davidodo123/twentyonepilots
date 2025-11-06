@@ -255,7 +255,7 @@ body {
   }
 
   @media (max-width: 830px) {
-      overflow-x: hidden;
+    overflow-x: hidden;
 
 
     .hero-nav {
@@ -321,7 +321,7 @@ body {
 
 
   @media (min-width: 831px) {
-      overflow-x: hidden;
+    overflow-x: hidden;
 
     .hero {
       & .mobile-menu {
@@ -425,7 +425,7 @@ body {
   }
 
   @media (max-width: 900px) {
-      overflow-x: hidden;
+    overflow-x: hidden;
 
     flex-direction: column;
     align-items: center;
@@ -646,7 +646,7 @@ body {
 
 
   @media (max-width: 900px) {
-  overflow-x: hidden;
+    overflow-x: hidden;
 
     .bio-header h2 {
       font-size: 44px;
@@ -890,7 +890,7 @@ body {
     box-shadow: 0 0 0 2px #222;
   }
 
- @media (max-width: 1500px) {
+  @media (max-width: 1500px) {
     overflow-x: hidden;
 
     width: 100%;
@@ -1140,7 +1140,7 @@ body {
 
 
   @media (max-width: 768px) {
-  overflow-x: hidden;
+    overflow-x: hidden;
 
     .albums-grid {
       margin: 0;
@@ -1293,149 +1293,175 @@ body {
     margin-top: 10rem;
 
     .tour-divider {
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 0;
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
 
-    width: 2px;
-    background-color: var(--accent);
-    transform: translateX(-50%);
-  }
-
-  .tour-left {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-
-    justify-content: flex-start;
-    align-items: center;
-    gap: 20px;
-    padding-right: 60px;
-    padding-top: 10rem;
-
-    .band-img {
-      width: 750px;
-      height: auto;
-      object-fit: cover;
-      margin-right: 2rem;
+      width: 2px;
+      background-color: var(--accent);
+      transform: translateX(-50%);
     }
 
-    .tour-logo {
-      width: 100px;
-      height: 100px;
-      margin-top: 10px;
-    }
-  }
+    .tour-left {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
 
-  .tour-right {
-    width: 50%;
-    display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 20px;
+      padding-right: 60px;
+      padding-top: 10rem;
 
-    flex-direction: column;
-    align-items: center;
-    position: relative;
+      .band-img {
+        width: 750px;
+        height: auto;
+        object-fit: cover;
+        margin-right: 2rem;
+      }
 
-    overflow: visible;
-    color: #fff;
-    font-family: "Lato";
-    font-size: 10px;
-  }
-
-  .tour-img-background {
-    position: absolute;
-    top: 50%;
-    right: calc(-50vw + 100%);
-    transform: translateY(-50%);
-    opacity: .2;
-    z-index: 0;
-
-    img {
-      width: 850px;
-      height: auto;
-      object-fit: contain;
-    }
-
-  }
-
-  .tour-info {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 1);
-    margin-left: 250px;
-
-
-    h3 {
-      font-size: 50px;
-      color: #fff;
-      margin-bottom: 12px;
-      letter-spacing: 1px;
-
-      a {
-        text-decoration: none;
-        color: inherit;
+      .tour-logo {
+        width: 100px;
+        height: 100px;
+        margin-top: 10px;
       }
     }
 
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      line-height: 1.3;
-      font-size: 24px;
+    .tour-right {
+      width: 50%;
+      display: flex;
+
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+
+      overflow: visible;
+      color: #fff;
+      font-family: "Lato";
+      font-size: 10px;
+    }
+
+    .tour-img-background {
+      position: absolute;
+      top: 50%;
+      right: calc(-50vw + 100%);
+      transform: translateY(-50%);
+      opacity: .2;
+      z-index: 0;
+
+      img {
+        width: 850px;
+        height: auto;
+        object-fit: contain;
+      }
+
+    }
+
+    .tour-info {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 1);
+      margin-left: 250px;
+
+
+      h3 {
+        font-size: 50px;
+        color: #fff;
+        margin-bottom: 12px;
+        letter-spacing: 1px;
+
+        a {
+          text-decoration: none;
+          color: inherit;
+        }
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        line-height: 1.3;
+        font-size: 24px;
+      }
     }
   }
-  }
 
-  
+
 
 
   @media (max-width: 1500px) {
-  overflow-x: hidden;
+    overflow-x: hidden;
 
     .tour-content {
       flex-direction: column;
       align-items: center;
+      gap: 2rem;
     }
 
     .tour-divider {
       display: none;
     }
 
-    .tour-left {
-      width: 60%;
-      height: auto;
+    .tour-left,
+    .tour-right {
+      width: 100%;
       padding: 0;
       align-items: center;
     }
 
+    .tour-left {
+      .band-img {
+        width: 60%;
+        height: auto;
+      }
+
+      .tour-logo {
+        width: 20%;
+        height: auto;
+        margin-top: .5rem;
+      }
+    }
+
     .tour-right {
-      width: 60%;
-      height: auto;
-      padding: 0;
-      align-items: center;
-
-      h3 {
-        font-size: 40px;
-
-      }
-
-      p {
-        font-size: 20px;
-      }
+      max-width: 900px;
     }
 
     .tour-info {
       text-align: center;
       margin-left: 0;
-      font-size: 20px;
+
+      h3 {
+        font-size: 24px;
+        line-height: 1.1;
+      }
+
+      p {
+        font-size: 20px;
+        line-height: 1.3;
+      }
     }
 
     .tour-img-background {
       display: none;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .tour-left .band-img {
+      width: 90%;
+      max-width: 520px;
+    }
+
+    .tour-info h3 {
+      font-size: 28px;
+    }
+
+    .tour-info ul {
+      font-size: 18px;
     }
   }
 
@@ -1607,7 +1633,7 @@ body {
 
     @media (max-width: 900px) {
 
-        overflow-x: hidden;
+      overflow-x: hidden;
 
       .tickets-steps {
         display: flex;
@@ -1618,11 +1644,8 @@ body {
         gap: 2rem;
         width: 100%;
         max-width: 700px;
-        /* mantiene proporción centrada */
         margin: 0 auto;
-        /* centra horizontalmente */
         padding: 0 1.5rem;
-        /* añade aire lateral */
         box-sizing: border-box;
       }
 
@@ -1802,7 +1825,7 @@ body {
 
   @media (max-width: 900px) {
 
-      overflow-x: hidden;
+    overflow-x: hidden;
 
     .merch-grid {
       display: flex;
@@ -2147,7 +2170,7 @@ body {
   }
 
   @media (max-width: 900px) {
-      overflow-x: hidden;
+    overflow-x: hidden;
 
     .contact {
       padding: 3rem 0;
@@ -2481,7 +2504,7 @@ body {
 
   @media (max-width: 900px) {
 
-      overflow-x: hidden;
+    overflow-x: hidden;
 
     .footer-container {
       padding-left: 1rem;
@@ -2568,7 +2591,7 @@ body {
   }
 
   @media (max-width: 600px) {
-      overflow-x: hidden;
+    overflow-x: hidden;
 
     .subscribe-form {
       flex-direction: column;
