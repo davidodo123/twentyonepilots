@@ -12,7 +12,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; 
   margin: 0;
   padding: 0;
 }
@@ -25,8 +24,8 @@ body {
   background: var(--main-color);
   color: var(--text-light);
   letter-spacing: .5px;
-  
-  
+
+
 }
 
 .hero {
@@ -256,6 +255,8 @@ body {
   }
 
   @media (max-width: 830px) {
+      overflow-x: hidden;
+
 
     .hero-nav {
       position: absolute;
@@ -269,13 +270,13 @@ body {
       background: transparent;
       z-index: 4;
 
-     .hero-brand img {
+      .hero-brand img {
         height: 40px;
         display: block;
       }
 
-       .hero-menu,
-       .hero-icons {
+      .hero-menu,
+      .hero-icons {
         display: none !important;
       }
     }
@@ -291,16 +292,16 @@ body {
       z-index: 5;
     }
 
-     .hero-content {
+    .hero-content {
       margin-top: 7rem;
       gap: 12px;
 
-       h1 {
+      h1 {
         font-size: 70px;
         line-height: 1;
       }
 
-       .cta {
+      .cta {
         margin-top: 3rem;
       }
     }
@@ -320,6 +321,8 @@ body {
 
 
   @media (min-width: 831px) {
+      overflow-x: hidden;
+
     .hero {
       & .mobile-menu {
         display: none !important;
@@ -422,6 +425,8 @@ body {
   }
 
   @media (max-width: 900px) {
+      overflow-x: hidden;
+
     flex-direction: column;
     align-items: center;
     padding: 20px;
@@ -455,7 +460,7 @@ body {
         font-size: 18px;
         line-height: 1.6;
       }
-      
+
     }
   }
 
@@ -641,6 +646,7 @@ body {
 
 
   @media (max-width: 900px) {
+  overflow-x: hidden;
 
     .bio-header h2 {
       font-size: 44px;
@@ -753,28 +759,29 @@ body {
           }
         }
       }
-      
-    }
-    .bio-about-info{
-        order: 2;
-        max-width: 680px;
-        margin: 2rem 2rem 2rem;
-        text-align: center;
-        line-height: .5rem;
 
-        p {
-          font-size: 20px;
-          line-height: 2rem;
-          text-align: center;
-        }
+    }
+
+    .bio-about-info {
+      order: 2;
+      max-width: 680px;
+      margin: 2rem 2rem 2rem;
+      text-align: center;
+      line-height: .5rem;
+
+      p {
+        font-size: 20px;
+        line-height: 2rem;
+        text-align: center;
       }
+    }
   }
 }
 
 
 .timeline {
-  width: 1600px;
-  margin: 7rem;
+  width: 90%;
+  margin: 0 6rem 6rem;
 
   display: grid;
   grid-template-columns: 1fr 3px 1fr;
@@ -883,65 +890,77 @@ body {
     box-shadow: 0 0 0 2px #222;
   }
 
-  @media (max-width: 900px) {
-    .timeline {
-      width: 100%;
-      max-width: 95%;
-      margin: 4rem auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 3rem;
-    }
+ @media (max-width: 1500px) {
+    overflow-x: hidden;
+
+    width: 100%;
+    max-width: 100%;
+    margin: 6rem 1rem 6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 
     .timeline-middle,
     .timeline-circle {
       display: none;
-      /* Ocultamos la línea y los puntos */
     }
 
-    .timeline-img {
-      order: 1;
-      display: flex;
-      justify-content: center;
-    }
-
-    .timeline-img img {
-      width: 100%;
-      max-width: 500px;
-      border: none;
-      /* Sin borde */
-      border-radius: 12px;
-    }
-
+    /* Quita formato de columnas alternas */
+    .timeline-img,
     .timeline-content {
-      order: 2;
-      width: 100%;
-      max-width: 500px;
-      background: transparent;
-      box-shadow: none;
-      text-align: center;
-      padding: 1.5rem;
+      grid-column: auto;
     }
 
-    .timeline-content h3 {
-      font-size: 24px;
-    }
-
-    .timeline-content p {
-      font-size: 18px;
-      line-height: 1.6;
-    }
-
+    .timeline-img.alt,
+    .timeline-content.alt,
     .timeline-content.center {
-      margin-top: 2rem;
+      grid-column: auto;
+      text-align: center;
+    }
+
+    .timeline-content.center::before {
+      display: none;
+    }
+
+    /* Imagen full width */
+    .timeline-img {
+      display: block;
+
+      img {
+        width: 60%;
+        max-width: none;
+        height: auto;
+        border: none;
+        box-shadow: none;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+
+    /* Texto sin formato extra */
+    .timeline-content {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      padding: 0;
+      text-align: center;
+
+      h3 {
+        font-size: 22px;
+        letter-spacing: .5px;
+        margin-top: .5rem;
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-top: .5rem;
+      }
     }
   }
 
 
 }
-
-
 
 
 
@@ -1121,6 +1140,7 @@ body {
 
 
   @media (max-width: 768px) {
+  overflow-x: hidden;
 
     .albums-grid {
       margin: 0;
@@ -1210,20 +1230,6 @@ body {
     }
   }
 
-  .ontour-left {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: 1fr;
-    gap: 16px;
-    padding-top: 2rem;
-    text-align: center;
-
-    span {
-      color: (--accent);
-      font-size: 30px;
-      letter-spacing: 1px;
-    }
-  }
 
 
   .ontour-video {
@@ -1285,9 +1291,8 @@ body {
     margin: 0 auto;
     padding: 40px 20px;
     margin-top: 10rem;
-  }
 
-  .tour-divider {
+    .tour-divider {
     position: absolute;
     left: 50%;
     top: 0;
@@ -1383,9 +1388,13 @@ body {
       font-size: 24px;
     }
   }
+  }
+
+  
 
 
   @media (max-width: 1500px) {
+  overflow-x: hidden;
 
     .tour-content {
       flex-direction: column;
@@ -1597,6 +1606,9 @@ body {
 
 
     @media (max-width: 900px) {
+
+        overflow-x: hidden;
+
       .tickets-steps {
         display: flex;
         flex-direction: column;
@@ -1789,6 +1801,9 @@ body {
 
 
   @media (max-width: 900px) {
+
+      overflow-x: hidden;
+
     .merch-grid {
       display: flex;
       flex-direction: column;
@@ -2131,9 +2146,9 @@ body {
 
   }
 
-
-  /* ===== Contact responsive (sin tocar tu base) ===== */
   @media (max-width: 900px) {
+      overflow-x: hidden;
+
     .contact {
       padding: 3rem 0;
     }
@@ -2145,17 +2160,13 @@ body {
 
     .contact-content {
       max-width: 680px;
-      /* caja más compacta */
       margin: 0 auto;
-      /* centrado */
       padding: 1.5rem;
-      /* menos padding */
       gap: 1.5rem;
       justify-content: center;
       align-items: center;
     }
 
-    /* Tu base tenía un scale grande: lo neutralizamos en móvil */
     .contact-form {
       transform: none;
       margin: 0;
@@ -2171,10 +2182,8 @@ body {
       max-width: 520px;
       width: 100%;
       height: auto;
-      /* quitar altura fija */
       margin-top: 1.5rem;
       text-align: center;
-      /* centrar texto en móvil */
     }
 
     .contact-info p {
@@ -2470,9 +2479,10 @@ body {
 
 
 
-
-  /* ===== Footer responsive ===== */
   @media (max-width: 900px) {
+
+      overflow-x: hidden;
+
     .footer-container {
       padding-left: 1rem;
       padding-right: 1rem;
@@ -2489,7 +2499,6 @@ body {
 
     .subscribe-agree {
       margin: .8rem auto 1.2rem;
-      /* centrado */
       max-width: 520px;
       justify-content: center;
       align-items: flex-start;
@@ -2503,7 +2512,6 @@ body {
 
       a {
         margin-right: 0;
-        /* quitar empuje a la derecha */
       }
     }
 
@@ -2513,10 +2521,8 @@ body {
 
     .footer-grid {
       grid-template-columns: 1fr;
-      /* una sola columna */
       gap: 1.5rem;
       justify-items: center;
-      /* centrar todo */
       text-align: center;
     }
 
@@ -2540,7 +2546,6 @@ body {
 
     .footer-columns {
       margin-left: 0;
-      /* quitar desplazamiento */
       grid-template-columns: 1fr 1fr;
       justify-items: center;
 
@@ -2551,7 +2556,6 @@ body {
 
     .footer-ticketmaster {
       justify-content: center;
-      /* logo al centro */
       margin-top: .5rem;
     }
 
@@ -2559,15 +2563,15 @@ body {
       right: auto;
       left: 50%;
       transform: translateX(-50%);
-      /* botón flotante centrado */
       top: -2.6rem;
     }
   }
 
   @media (max-width: 600px) {
+      overflow-x: hidden;
+
     .subscribe-form {
       flex-direction: column;
-      /* ya lo tenías: lo mantenemos */
       max-width: 100%;
     }
 
@@ -2577,7 +2581,6 @@ body {
 
     .footer-columns {
       grid-template-columns: 1fr;
-      /* una columna en móviles pequeños */
       gap: 1.25rem;
     }
 
@@ -2597,7 +2600,6 @@ body {
     .subscribe-agree,
     .privacy-note {
       font-size: 10px;
-      /* un poco más legible que 8px */
     }
 
     .ticketmaster-logo {
