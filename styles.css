@@ -22,8 +22,6 @@ body {
   background: var(--main-color);
   color: var(--text-light);
   letter-spacing: .5px;
-
-
 }
 
 .hero {
@@ -36,7 +34,6 @@ body {
     position: relative;
     z-index: 3;
     display: flex;
-
     padding: 20px 16px;
     align-items: center;
 
@@ -80,12 +77,7 @@ body {
       .icon {
         height: 20px;
         display: block;
-        transition: transform .2s;
         cursor: pointer;
-
-        &:hover {
-          transform: scale(1.1);
-        }
       }
     }
   }
@@ -135,59 +127,7 @@ body {
     opacity: .3;
     pointer-events: none;
   }
-
-  @media (max-width: 830px) {
-
-    .hero-nav {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      display: flex !important;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 16px;
-      background: transparent;
-      z-index: 4;
-
-      .hero-brand img {
-        height: 40px;
-        display: block;
-      }
-
-      .hero-menu,
-      .hero-icons {
-        display: none !important;
-      }
-    }
-
-    .hero-content {
-      margin-top: 7rem;
-      gap: 12px;
-
-
-      h1 {
-        font-size: 70px;
-        line-height: 1;
-      }
-
-      .cta {
-        margin-top: 3rem;
-      }
-    }
-
-    .hero-background {
-      background-image: url("img/FotoHero.jpg");
-      background-size: cover;
-      background-position: center top;
-      background-repeat: no-repeat;
-    }
-
-
-  }
 }
-
-
 
 .grammy {
   display: flex;
@@ -195,11 +135,9 @@ body {
   width: 100%;
   padding: 40px;
 
-
   .billboard {
     flex: 1;
     display: flex;
-
     align-items: center;
     justify-content: center;
     padding: 40px;
@@ -212,7 +150,6 @@ body {
       display: block;
       opacity: .95;
     }
-
   }
 
   .grammy-content {
@@ -221,7 +158,6 @@ body {
     align-items: center;
     justify-content: center;
     padding: 40px;
-
     box-sizing: border-box;
     flex-direction: column;
     text-align: center;
@@ -237,10 +173,8 @@ body {
       font-size: 24px;
       line-height: 1.4;
       max-width: 500px;
-
       margin: 0 auto 30px;
       color: #e5e5e5;
-
     }
 
     strong {
@@ -252,7 +186,6 @@ body {
       max-width: 700px;
       aspect-ratio: 16/9;
       overflow: hidden;
-
       border-radius: 8px;
       border: 1px solid #222;
 
@@ -261,56 +194,9 @@ body {
         height: 100%;
         display: block;
       }
-
     }
   }
-
-  @media (max-width: 900px) {
-    overflow-x: hidden;
-
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    gap: 30px;
-
-    .billboard {
-      order: 1;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-
-      img {
-        width: 100%;
-        max-width: 500px;
-        height: auto;
-      }
-    }
-
-    .grammy-content {
-      order: 2;
-      text-align: center;
-      width: 100%;
-      max-width: 600px;
-      padding: 0 1rem;
-
-      h2 {
-        font-size: 42px;
-      }
-
-      p {
-        font-size: 18px;
-        line-height: 1.6;
-      }
-
-    }
-  }
-
-
-
-
 }
-
-
 
 .bio {
   background: var(--main-color);
@@ -338,7 +224,7 @@ body {
 
     .bio-about {
       flex: 1;
-      max-width: 600px;
+      max-width: 800px;
       margin-left: 2.5vw;
       text-align: justify;
 
@@ -349,7 +235,7 @@ body {
         line-height: 44px;
         letter-spacing: 0;
         color: #e4e4e4;
-        margin: 3rem 0 0 0;
+        margin: 0;
         text-align: left;
       }
 
@@ -369,12 +255,12 @@ body {
         max-width: 640px;
         height: auto;
         margin-top: 3rem;
-        margin-left: 7rem;
+        margin-left: 10rem;
       }
 
       .red-band {
         position: absolute;
-        right: -100px;
+        right: -90px;
         height: 666px;
         width: 375px;
         object-fit: contain;
@@ -397,53 +283,46 @@ body {
       width: 240px;
       text-align: center;
       box-shadow: 0 0 12px rgba(0, 0, 0, .4);
-      transition: transform .2s, box-shadow .2s;
-    }
 
-    .member-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 18px rgba(178, 74, 57, .6);
-    }
-
-    .member-card .member-photo {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
-      border-top-left-radius: 8px;
-      border-top-right-radius: 8px;
-      display: block;
-    }
-
-    .member-body {
-      padding: 18px;
-
-      h3 {
-        font-size: 18px;
-        letter-spacing: 1px;
-        margin-bottom: 6px;
+      &:hover {
+        box-shadow: 0 0 18px rgba(178, 74, 57, .6);
       }
 
-      .age {
-        color: #bbb;
-        margin-bottom: 10px;
-        font-size: 15px;
+      .member-photo {
+        width: 100%;
+        height: 260px;
+        object-fit: cover;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        display: block;
       }
 
-      .social-links {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem;
-        margin-top: 1rem;
+      .member-body {
+        padding: 18px;
 
-        img {
-          width: 26px;
-          height: 26px;
-          object-fit: contain;
-          transition: transform .2s;
+        h3 {
+          font-size: 18px;
+          letter-spacing: 1px;
+          margin-bottom: 6px;
+        }
 
-          &:hover {
-            transform: scale(1.15);
+        .age {
+          color: #bbb;
+          margin-bottom: 10px;
+          font-size: 15px;
+        }
+
+        .social-links {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 1rem;
+          margin-top: 1rem;
+
+          img {
+            width: 26px;
+            height: 26px;
+            object-fit: contain;
           }
         }
       }
@@ -451,7 +330,7 @@ body {
   }
 
   .bio-about-info {
-    max-width: 1600px;
+    max-width: 1800px;
     margin-left: 2.5vw;
     text-align: center;
     margin-top: 3rem;
@@ -470,136 +349,12 @@ body {
       color: var(--accent);
     }
   }
-
-  @media (max-width: 900px) {
-
-    .bio-header h2 {
-      font-size: 44px;
-      text-align: center;
-    }
-
-    .bio-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 18px 6vw;
-      gap: 2rem;
-
-      .bio-about {
-        order: 1;
-        max-width: 680px;
-        margin: 0 auto;
-        text-align: center;
-
-        p {
-          font-size: 20px;
-          line-height: 2rem;
-          text-align: center;
-        }
-      }
-
-      .bio-img-about {
-        order: 2;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 1rem;
-
-        .about-img {
-          width: 92%;
-          max-width: 520px;
-          height: auto;
-        }
-
-        .red-band {
-          display: none;
-        }
-      }
-
-
-      .members {
-        order: 3;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 30px;
-        margin-top: 3rem;
-        padding: 0 20px;
-
-        .member-card {
-          width: 200px;
-          background: #111;
-          border-radius: 8px;
-          text-align: center;
-          box-shadow: 0 0 12px rgba(0, 0, 0, .4);
-          transition: transform .2s, box-shadow .2s;
-
-          &:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 18px rgba(178, 74, 57, .6);
-          }
-
-          .member-photo {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
-          }
-
-          .member-body {
-            padding: 18px;
-
-            h3 {
-              font-size: 18px;
-              margin-bottom: 6px;
-            }
-
-            .age {
-              color: #bbb;
-              font-size: 15px;
-              margin-bottom: 10px;
-            }
-
-            .social-links {
-              display: flex;
-              justify-content: center;
-              gap: 1rem;
-              margin-top: 1rem;
-
-              img {
-                width: 26px;
-                height: 26px;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    .bio-about-info {
-      order: 2;
-      max-width: 680px;
-      margin: 2rem 2rem 2rem;
-      text-align: center;
-      line-height: .5rem;
-
-      p {
-        font-size: 20px;
-        line-height: 2rem;
-        text-align: center;
-      }
-    }
-  }
 }
-
 
 .timeline {
   width: 90%;
   margin: 5rem 6rem 6rem;
   position: relative;
-
   display: flex;
   flex-wrap: wrap;
   gap: 60px;
@@ -613,7 +368,6 @@ body {
     left: 50%;
     width: 3px;
     background: var(--accent);
-    transform: translateX(-50%);
   }
 
   .timeline-img,
@@ -630,9 +384,7 @@ body {
 
   .timeline-circle {
     position: absolute;
-    left: 50%;
     top: 0;
-    transform: translate(-50%, -50%);
     width: 18px;
     height: 18px;
     background: var(--accent);
@@ -653,8 +405,6 @@ body {
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
       display: block;
     }
-
-
   }
 
   .timeline-content {
@@ -700,7 +450,6 @@ body {
         position: absolute;
         top: 22px;
         left: 50%;
-        transform: translateX(-50%);
         width: 18px;
         height: 18px;
         background: var(--accent);
@@ -709,76 +458,8 @@ body {
       }
     }
   }
-
-
-  @media (max-width: 1500px) {
-
-
-    .timeline-middle,
-    .timeline-circle {
-      display: none;
-    }
-
-    /* Quita formato de columnas alternas */
-    .timeline-img,
-    .timeline-content {
-      flex-direction: column;
-    }
-
-    .timeline-img.alt,
-    .timeline-content.alt,
-    .timeline-content.center {
-      flex-direction: column;
-      text-align: center;
-    }
-
-    .timeline-content.center::before {
-      display: none;
-    }
-
-    /* Imagen full width */
-    .timeline-img {
-      display: block;
-
-      img {
-        width: 60%;
-        max-width: none;
-        height: auto;
-        border: none;
-        box-shadow: none;
-        display: block;
-        margin: 0 auto;
-      }
-    }
-
-    /* Texto sin formato extra */
-    .timeline-content {
-      background: transparent;
-      border: none;
-      box-shadow: none;
-      padding: 0;
-      text-align: center;
-
-      h3 {
-        font-size: 22px;
-        letter-spacing: .5px;
-        margin-top: .5rem;
-      }
-
-      p {
-        font-size: 16px;
-        line-height: 1.6;
-        margin-top: .5rem;
-      }
-    }
-  }
-
-
 }
 
-
-
-/* ================= ALBUMS ================= */
 /* ================= ALBUMS ================= */
 .albums {
   background: var(--main-color);
@@ -830,15 +511,6 @@ body {
     min-height: 100vh;
     justify-content: center;
     overflow: hidden;
-  }
-
-  .latest-album-bg {
-    position: absolute;
-    inset: 0;
-    opacity: 0.17;
-    transform: scaleX(-1);
-    z-index: 1;
-    pointer-events: none;
   }
 
   .latest-album-content {
@@ -929,68 +601,8 @@ body {
       border: none;
     }
   }
-
-  @media (max-width: 768px) {
-    overflow-x: hidden;
-
-    .albums-disc {
-      margin: 0;
-    }
-
-    .latest-album {
-      padding: 50px 15px;
-    }
-
-    .latest-album-content h2 {
-      font-size: 30px;
-      margin-bottom: 30px;
-    }
-
-    .latest-album-container {
-      max-width: 90%;
-      gap: 20px;
-    }
-
-    .latest-album-cover-img {
-      width: 100%;
-      max-width: 250px;
-    }
-
-    .tracklist-container {
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-
-      iframe {
-        flex: 0 1 auto;
-        width: 100%;
-        height: 80px;
-        max-width: 280px;
-      }
-    }
-
-    .Cancion-spotify {
-      flex-direction: column;
-      gap: 16px;
-      align-items: center;
-    }
-
-    .latest-album-reproducer {
-      transform: none;
-      width: 100%;
-      min-width: 0;
-      height: 160px;
-      padding-top: 0;
-    }
-
-    .latest-album-reproducer iframe {
-      width: 100%;
-      height: 100%;
-    }
-  }
 }
 
-/* ================= ON TOUR ================= */
 /* ================= ON TOUR ================= */
 .ontour {
   background: var(--main-color);
@@ -1048,12 +660,11 @@ body {
     border: none;
     cursor: pointer;
     transition: all .2s ease;
-  }
 
-  .btn-tickets:hover {
-    background: transparent;
-    border: 1px solid var(--accent);
-    transition: background .2s, color .2s, transform .05s;
+    &:hover {
+      background: transparent;
+      border: 1px solid var(--accent);
+    }
   }
 
   .tour-content {
@@ -1073,7 +684,6 @@ body {
       bottom: 0;
       width: 2px;
       background-color: var(--accent);
-      transform: translateX(-50%);
     }
 
     .tour-left {
@@ -1115,9 +725,8 @@ body {
 
     .tour-img-background {
       position: absolute;
-      top: 50%;
+      top: -33%;
       right: -35%;
-      transform: translateY(-50%);
       opacity: .2;
       z-index: 0;
 
@@ -1155,72 +764,6 @@ body {
         line-height: 1.3;
         font-size: clamp(18px, 0.5vw + 1rem, 24px);
       }
-    }
-  }
-
-  @media (max-width: 1500px) {
-    .tour-content {
-      flex-direction: column;
-      align-items: center;
-      gap: 2rem;
-    }
-
-    .tour-divider {
-      display: none;
-    }
-
-    .tour-left,
-    .tour-right {
-      width: 100%;
-      padding: 0;
-      align-items: center;
-    }
-
-    .tour-left {
-      .band-img {
-        width: 60%;
-        height: auto;
-      }
-
-      .tour-logo {
-        width: 20%;
-        height: auto;
-        margin-top: .5rem;
-      }
-    }
-
-    .tour-right {
-      max-width: 900px;
-    }
-
-    .tour-info {
-      text-align: center;
-      margin-left: 0;
-
-      h3 {
-        font-size: 24px;
-        line-height: 1.1;
-      }
-
-      p {
-        font-size: 20px;
-        line-height: 1.3;
-      }
-    }
-
-    .tour-img-background {
-      display: none;
-    }
-  }
-
-  @media (max-width: 900px) {
-    .tour-left .band-img {
-      width: 90%;
-      max-width: 520px;
-    }
-
-    .tour-info h3 {
-      font-size: 28px;
     }
   }
 
@@ -1313,11 +856,11 @@ body {
           border: none;
           cursor: pointer;
           transition: all .2s ease;
-        }
 
-        .btn-tickets:hover {
-          background: transparent;
-          border: 1px solid var(--accent);
+          &:hover {
+            background: transparent;
+            border: 1px solid var(--accent);
+          }
         }
       }
     }
@@ -1333,109 +876,36 @@ body {
         color: white;
         font-family: 'Bebas Neue';
       }
-    }
 
-    .stadium-map {
-      width: 100%;
-      max-width: 600px;
-      border-radius: 10px;
-      opacity: 0.95;
-    }
-
-    .payment-box {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 1.5rem;
-      margin-top: 2rem;
-      font-family: 'Bebas Neue';
-
-      .step {
-        color: #fff;
-        font-size: 1.6rem;
-        letter-spacing: 1px;
-      }
-
-      .total {
-        background: var(--accent);
-        color: white;
-        font-size: 1.6rem;
-        padding: 10px 24px;
-        border-radius: 4px;
-        letter-spacing: 1px;
-      }
-    }
-
-    @media (max-width: 900px) {
-      .tickets-steps {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        gap: 2rem;
-        width: 100%;
-        max-width: 700px;
-        margin: 0 auto;
-        padding: 0 1.5rem;
-        box-sizing: border-box;
-      }
-
-      .tickets-left,
-      .tickets-right {
+      .stadium-map {
         width: 100%;
         max-width: 600px;
-        margin: 0 auto;
-      }
-
-      .tickets-left {
-        margin-left: auto;
-      }
-
-      .ticket-dates {
-        width: 100%;
-        list-style: none;
-        padding: 0;
-        margin: 0 auto;
-      }
-
-      .ticket-dates li {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        background: #2f2f2f;
         border-radius: 10px;
-        padding: 1rem;
-        margin-bottom: 1rem;
-        box-shadow: 0 0 10px rgba(0, 0, 0, .4);
-        width: 100%;
-      }
-
-      .ticket-dates .btn-tickets {
-        align-self: center;
-        margin-top: .5rem;
-      }
-
-      .tickets-right .stadium-map {
-        max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: 0 0 12px rgba(0, 0, 0, .6);
+        opacity: 0.95;
       }
 
       .payment-box {
-        margin-top: 1.5rem;
-        background: #111;
-        padding: 1rem 1.5rem;
-        border-radius: 8px;
-        text-align: center;
-        color: #fff;
-        width: 100%;
-        max-width: 400px;
-        margin-left: auto;
-        margin-right: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+        margin-top: 2rem;
+        font-family: 'Bebas Neue';
+
+        .step {
+          color: #fff;
+          font-size: 1.6rem;
+          letter-spacing: 1px;
+        }
+
+        .total {
+          background: var(--accent);
+          color: white;
+          font-size: 1.6rem;
+          padding: 10px 24px;
+          border-radius: 4px;
+          letter-spacing: 1px;
+        }
       }
     }
   }
@@ -1446,191 +916,109 @@ body {
     font-family: 'Bebas Neue';
     margin: 0;
     overflow-x: hidden;
-  }
 
-  .merch-header {
-    width: 100%;
-    background: var(--accent);
-    padding: 12px 6vw;
-    text-align: center;
-    margin-bottom: 3rem;
-    margin-top: -2rem;
-
-    h2 {
-      margin: 0;
-      font-size: 70px;
-      letter-spacing: 2px;
-      text-align: center;
-    }
-  }
-
-  .merch-container {
-    width: min(2000px, 90vw);
-    margin: 32px auto 80px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 28px 32px;
-  }
-
-  .merch-card {
-    background: #2f2f2f;
-    border-radius: 12px;
-    padding: 20px 10px 20px;
-    box-shadow: 0 60px 18px rgba(0, 0, 0, .35);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-
-
-    .media {
-      width: auto;
-      height: 540px;
-      border-radius: 8px;
-      background: #3a3a3a;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      margin: 0;
-    }
-
-    .media img {
+    .merch-header {
       width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
+      background: var(--accent);
+      padding: 12px 6vw;
+      text-align: center;
+      margin-bottom: 3rem;
+      margin-top: -2rem;
+
+      h2 {
+        margin: 0;
+        font-size: 70px;
+        letter-spacing: 2px;
+        text-align: center;
+      }
     }
 
-    .price {
-      font-size: clamp(24px, 0.5vw + 1.25rem, 32px);
-      color: #d7d7d7;
-      margin-top: 6px;
-    }
-  }
-
-  .actions {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-top: 4px;
-  }
-
-  .btn {
-    width: 100%;
-    padding: 10px 14px;
-    font-family: "Lato";
-    letter-spacing: .6px;
-    font-size: clamp(14px, 1vw + 0.3rem, 25px);
-    cursor: pointer;
-    border-radius: 0;
-  }
-
-  .btn-transparent {
-    background: transparent;
-    border: 1px solid white;
-    color: #eaeaea;
-  }
-
-  .btn-transparent:hover {
-    color: var(--accent);
-    background-color: white;
-  }
-
-  .btn-solid {
-    background: var(--accent);
-    border: 1px black;
-    color: white;
-  }
-
-  .btn-solid:hover {
-    background: black;
-    border: 1px solid var(--accent);
-  }
-
-  @media (max-width: 900px) {
     .merch-container {
+      width: min(2000px, 90vw);
+      margin: 32px auto 80px;
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2rem;
-      padding: 0 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 28px 32px;
     }
 
     .merch-card {
       background: #2f2f2f;
       border-radius: 12px;
-      padding: 16px;
-      box-shadow: 0 10px 18px rgba(0, 0, 0, .4);
-      width: 100%;
-      max-width: 340px;
+      padding: 20px 10px 20px;
+      box-shadow: 0 60px 18px rgba(0, 0, 0, .35);
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 12px;
-      flex: unset;
-      min-width: unset; 
-    }
-
-    .merch-card .media {
-      width: 100%;
-      height: auto;
-      max-height: 360px;
-      border-radius: 10px;
-      background: #3a3a3a;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-    }
-
-    .merch-card .media img {
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-      display: block;
-    }
-
-    .merch-card .price {
-      color: #f0f0f0;
-      text-align: center;
-      margin-top: 8px;
-    }
-
-    .merch-card .actions {
-      display: flex;
-      flex-direction: column;
       gap: 10px;
-      width: 100%;
-      align-items: center;
-    }
 
-    .merch-card .btn {
-      width: 90%;
-      padding: 10px;
-      border-radius: 8px;
-    }
+      .media {
+        width: auto;
+        height: 540px;
+        border-radius: 8px;
+        background: #3a3a3a;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        margin: 0;
 
-    .merch-card .btn-solid {
-      background: var(--accent);
-      color: white;
-      border: none;
-    }
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          display: block;
+        }
+      }
 
-    .merch-card .btn-transparent {
-      background: transparent;
-      color: var(--accent);
-      border: 1px solid var(--accent);
+      .price {
+        font-size: clamp(24px, 0.5vw + 1.25rem, 32px);
+        color: #d7d7d7;
+        margin-top: 6px;
+      }
+
+      .actions {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 4px;
+
+        .btn {
+          width: 100%;
+          padding: 10px 14px;
+          font-family: "Lato";
+          letter-spacing: .6px;
+          font-size: clamp(14px, 1vw + 0.3rem, 25px);
+          cursor: pointer;
+          border-radius: 0;
+        }
+
+        .btn-transparent {
+          background: transparent;
+          border: 1px solid white;
+          color: #eaeaea;
+
+          &:hover {
+            color: var(--accent);
+            background-color: white;
+          }
+        }
+
+        .btn-solid {
+          background: var(--accent);
+          border: 1px black;
+          color: white;
+
+          &:hover {
+            background: black;
+            border: 1px solid var(--accent);
+          }
+        }
+      }
     }
   }
 }
-
-
-
-
-
 
 /* ========== CONTACT SECTION ========== */
 .contact {
@@ -1665,24 +1053,19 @@ body {
 
   .contact-content {
     font-family: "Lato";
-
     display: flex;
     justify-content: center;
     align-items: flex-start;
     gap: 10rem;
-
     background: black;
     padding: 4rem 6vw;
     color: white;
-
     flex-wrap: wrap;
     margin-top: 4rem;
   }
 
   .contact-form {
-
-    transform: scale(1.3);
-    transform-origin: top left;
+    width: 600px;
     margin-left: 2rem;
 
     form {
@@ -1696,86 +1079,81 @@ body {
     }
 
     label {
-      font-size: 0.95rem;
+      font-size: 1rem;
       letter-spacing: 1px;
     }
 
+    .input[type="text"],
     .input[type="password"] {
       width: 100%;
       background: transparent;
       border: 1px solid white;
       color: white;
-      padding: 10px;
       font-family: "Lato";
-    }
-
-    .input[type="text"] {
-      font-size: 2px;
-
-      display: flex;
-      align-items: center;
-
-      gap: 8px;
+      font-size: 1rem;
+      padding: 25px;
     }
 
     .checkbox-row {
       display: flex;
       align-items: center;
       gap: 8px;
-      font-size: 2px;
+
+      label {
+        font-size: 0.9rem;
+        text-transform: lowercase;
+        margin: 0;
+      }
+
+      input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+        margin: 0;
+      }
     }
-
-
   }
-
-
 
   .button-row {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-
     gap: 2rem;
     flex-wrap: wrap;
 
     .sign-in {
       font-family: "Lato";
-
       background: var(--accent);
       color: #fff;
       text-decoration: none;
-
       letter-spacing: 1px;
       font-size: 16px;
       padding: 15px 32px;
       border: none;
       cursor: pointer;
-    }
 
-    .sign-in:hover {
-      background: transparent;
-      border: 1px solid var(--accent);
-      color: var(--accent);
+      &:hover {
+        background: transparent;
+        border: 1px solid var(--accent);
+        color: var(--accent);
+      }
     }
 
     .sign-up {
       font-family: "Lato";
-
       background: white;
       color: black;
       text-decoration: none;
-
       letter-spacing: 1px;
       font-size: 16px;
       padding: 15px 32px;
       border: none;
       cursor: pointer;
-    }
 
-    .sign-up:hover {
-      background: transparent;
-      color: white;
-      border: 1px solid white;
+      &:hover {
+        background: transparent;
+        color: white;
+        border: 1px solid white;
+      }
     }
 
     button {
@@ -1786,78 +1164,64 @@ body {
     }
   }
 
-
   .btn-tickets {
     background: var(--accent);
     font-family: "Lato";
-
     color: #fff;
     text-decoration: none;
-
     letter-spacing: 1px;
     font-size: 24px;
     padding: 15px 32px;
     border: none;
-
     cursor: pointer;
     transition: all .2s ease;
+
+    &:hover {
+      background: transparent;
+      border: 1px solid var(--accent);
+    }
   }
-
-  .btn-tickets:hover {
-    background: transparent;
-    border: 1px solid var(--accent);
-  }
-
-
 
   .social-login {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-
     gap: 0.6rem;
     margin-top: 1.2rem;
     width: 100%;
     max-width: 220px;
-  }
 
-  .social-btn {
-    width: 100%;
-    height: auto;
+    .social-btn {
+      width: 100%;
+      height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      background: black;
+      border: 1px solid #333;
+      color: white;
+      font-family: "Lato";
+      font-size: 16px;
+      font-weight: 500;
+      white-space: nowrap;
+      padding: 0.4em 0.8em;
+      border-radius: 4px;
+      cursor: pointer;
+      text-transform: none;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    gap: 0.4rem;
-    background: black;
-    border: 1px solid #333;
-    color: white;
-
-    font-family: "Lato";
-    font-size: 16px;
-    font-weight: 500;
-    white-space: nowrap;
-    padding: 0.4em 0.8em;
-    border-radius: 4px;
-    cursor: pointer;
-
-
-    text-transform: none;
-
-    img {
-      width: .8em;
-      height: .8em;
-      object-fit: contain;
+      img {
+        width: .8em;
+        height: .8em;
+        object-fit: contain;
+      }
     }
-
   }
 
   .contact-info {
     flex: 1;
     max-width: 480px;
     height: 600px;
-
     border: 1px solid var(--accent);
     padding: 2rem;
 
@@ -1867,7 +1231,6 @@ body {
       font-family: "Lato";
       font-size: 28px;
     }
-
   }
 
   .contact-logos {
@@ -1875,7 +1238,6 @@ body {
     gap: 2rem;
     align-items: center;
     justify-content: flex-start;
-
     margin-top: 3rem;
     margin-left: 2rem;
 
@@ -1884,113 +1246,15 @@ body {
       width: auto;
       opacity: 0.9;
       transition: opacity .2s;
-    }
 
-    img:hover {
-      opacity: 1;
-    }
-
-  }
-
-  @media (max-width: 900px) {
-    overflow-x: hidden;
-
-    .contact {
-      padding: 3rem 0;
-    }
-
-    .contact-header h2 {
-      font-size: 40px;
-      text-align: center;
-    }
-
-    .contact-content {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 1.5rem;
-      gap: 1.5rem;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .contact-form {
-      transform: none;
-      margin: 0;
-      max-width: 520px;
-      width: 100%;
-    }
-
-    .contact-form form {
-      gap: .9rem;
-    }
-
-    .contact-info {
-      max-width: 520px;
-      width: 100%;
-      height: auto;
-      margin-top: 1.5rem;
-      text-align: center;
-    }
-
-    .contact-info p {
-      font-size: 18px;
-      line-height: 1.6;
-    }
-
-    .button-row {
-      justify-content: center;
-      gap: 1rem;
-    }
-
-    .social-login {
-      align-items: center;
-      width: 100%;
-      max-width: 240px;
-      margin-top: 1rem;
-    }
-
-    .contact-logos {
-      justify-content: center;
-      margin-left: 0;
-      gap: 1rem;
-    }
-
-    .contact-map {
-      max-width: 680px;
-      margin: 1.5rem auto;
-      border-radius: 12px;
-      overflow: hidden;
-    }
-
-    .contact-map img {
-      width: 100%;
-      height: auto;
-      display: block;
+      &:hover {
+        opacity: 1;
+      }
     }
   }
-
-  @media (max-width: 480px) {
-    .contact-content {
-      max-width: 92%;
-      padding: 1rem;
-    }
-
-    .contact-header h2 {
-      font-size: 32px;
-    }
-
-    .contact-info p {
-      font-size: 16px;
-      line-height: 1.6;
-    }
-  }
-
 }
 
-
 /*================ FOOTER ================*/
-
-
 .footer-content {
   background: #464646;
   color: white;
@@ -2106,12 +1370,10 @@ body {
         object-fit: contain;
         filter: none;
         opacity: 1;
-        transition: transform .2s, opacity .2s;
-      }
 
-      img:hover {
-        transform: scale(1.1);
-        opacity: 0.8;
+        &:hover {
+          opacity: 0.8;
+        }
       }
     }
   }
@@ -2158,10 +1420,10 @@ body {
       text-decoration: none;
       font-family: "Lato";
       font-size: 10px;
-    }
 
-    a:hover {
-      color: white;
+      &:hover {
+        color: white;
+      }
     }
   }
 
@@ -2212,10 +1474,10 @@ body {
       color: var(--text-light);
       text-decoration: none;
       transition: color 0.2s ease;
-    }
 
-    a:hover {
-      color: var(--accent);
+      &:hover {
+        color: var(--accent);
+      }
     }
   }
 
@@ -2230,8 +1492,628 @@ body {
     width: 40px;
     height: 40px;
   }
+}
 
-  @media (max-width: 900px) {
+
+@media (max-width: 1500px) {
+
+  .timeline {
+    display: block;
+    width: 100%;
+    margin: 2rem auto;
+    padding: 0 1rem;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  .timeline-middle,
+  .timeline-circle {
+    display: none !important;
+  }
+
+
+  .timeline-img,
+  .timeline-content {
+    flex: unset;
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto 12px auto;
+  }
+
+  .timeline-content {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+    text-align: left;
+  }
+
+  .timeline-img {
+    display: block;
+
+    img {
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+      border: 0;
+      box-shadow: none;
+    }
+
+    margin-bottom: 2rem;
+  }
+
+  .ontour {
+    .tour-content {
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .tour-content .tour-divider {
+      display: none;
+    }
+
+    .tour-content .tour-left,
+    .tour-content .tour-right {
+      width: 100%;
+      padding: 0;
+      align-items: center;
+    }
+
+    .tour-content .tour-left {
+      .band-img {
+        width: 60%;
+        height: auto;
+      }
+
+      .tour-logo {
+        width: 20%;
+        height: auto;
+        margin-top: .5rem;
+      }
+    }
+
+    .tour-right {
+      max-width: 900px;
+    }
+
+    .tour-info {
+      text-align: center;
+      margin-left: 0;
+
+      h3 {
+        font-size: 24px;
+        line-height: 1.1;
+      }
+
+      p {
+        font-size: 20px;
+        line-height: 1.3;
+      }
+    }
+
+    .tour-img-background {
+      display: none;
+    }
+  }
+}
+
+/* ====== <=780px ====== */
+@media (max-width: 780px) {
+
+  /* hero (antes @830) */
+  .hero {
+    .hero-nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex !important;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      background: transparent;
+      z-index: 4;
+
+      .hero-brand img {
+        height: 40px;
+        display: block;
+      }
+
+      .hero-menu,
+      .hero-icons {
+        display: none !important;
+      }
+    }
+
+    .hero-content {
+      margin-top: 7rem;
+      gap: 12px;
+
+      h1 {
+        font-size: 70px;
+        line-height: 1;
+      }
+
+      .cta {
+        margin-top: 3rem;
+      }
+    }
+
+    .hero-background {
+      background-image: url("img/FotoHero.jpg");
+      background-size: cover;
+      background-position: center top;
+      background-repeat: no-repeat;
+    }
+  }
+
+  /* grammy (antes @900) */
+  .grammy {
+    overflow-x: hidden;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 30px;
+
+    .billboard {
+      order: 1;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+
+      img {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+      }
+    }
+
+    .grammy-content {
+      order: 2;
+      text-align: center;
+      width: 100%;
+      max-width: 600px;
+      padding: 0 1rem;
+
+      h2 {
+        font-size: 42px;
+      }
+
+      p {
+        font-size: 18px;
+        line-height: 1.6;
+      }
+    }
+  }
+
+  .bio {
+    .bio-header h2 {
+      font-size: 44px;
+      text-align: center;
+    }
+
+    .bio-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 18px 6vw;
+      gap: 2rem;
+
+      .bio-about {
+        order: 1;
+        max-width: 680px;
+        margin: 0 auto;
+        text-align: center;
+
+        p {
+          font-size: 20px;
+          line-height: 2rem;
+          text-align: start;
+        }
+      }
+
+      .bio-img-about {
+        order: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1rem;
+
+        .about-img {
+          width: 92%;
+          max-width: 520px;
+          height: auto;
+          margin-right: 10rem;
+        }
+
+        .red-band {
+          display: none;
+        }
+      }
+
+      .members {
+        order: 3;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 3rem;
+        padding: 0 20px;
+
+        .member-card {
+          width: 200px;
+          background: #111;
+          border-radius: 8px;
+          text-align: center;
+          box-shadow: 0 0 12px rgba(0, 0, 0, .4);
+
+          &:hover {
+            box-shadow: 0 0 18px rgba(178, 74, 57, .6);
+          }
+
+          .member-photo {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+          }
+
+          .member-body {
+            padding: 18px;
+
+            h3 {
+              font-size: 18px;
+              margin-bottom: 6px;
+            }
+
+            .age {
+              color: #bbb;
+              font-size: 15px;
+              margin-bottom: 10px;
+            }
+
+            .social-links {
+              display: flex;
+              justify-content: center;
+              gap: 1rem;
+              margin-top: 1rem;
+
+              img {
+                width: 26px;
+                height: 26px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .bio-about-info {
+      order: 2;
+      max-width: 680px;
+      margin: 2rem 2rem 2rem;
+      text-align: center;
+      line-height: .5rem;
+
+      p {
+        font-size: 20px;
+        line-height: 2rem;
+        text-align: start;
+      }
+    }
+  }
+
+  .albums {
+    overflow-x: hidden;
+
+    .albums-disc {
+      margin: 0;
+    }
+
+    .latest-album {
+      padding: 50px 15px;
+    }
+
+    .latest-album-content h2 {
+      font-size: 30px;
+      margin-bottom: 30px;
+    }
+
+    .latest-album-container {
+      max-width: 90%;
+      gap: 20px;
+    }
+
+    .latest-album-cover-img {
+      width: 100%;
+      max-width: 250px;
+    }
+
+    .tracklist-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+
+      iframe {
+        flex: 0 1 auto;
+        width: 100%;
+        height: 80px;
+        max-width: 280px;
+      }
+    }
+
+    .Cancion-spotify {
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .latest-album-reproducer {
+      width: 100%;
+      min-width: 0;
+      height: 160px;
+      padding-top: 0;
+
+      iframe {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .ontour {
+    .tour-left .band-img {
+      width: 90%;
+      max-width: 520px;
+    }
+
+    .tour-info h3 {
+      font-size: 28px;
+    }
+
+    .tickets {
+      .tickets-steps {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 2rem;
+        width: 100%;
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        box-sizing: border-box;
+      }
+
+      .tickets-left,
+      .tickets-right {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .tickets-left {
+        margin-left: auto;
+      }
+
+      .ticket-dates {
+        width: 100%;
+        list-style: none;
+        padding: 0;
+        margin: 0 auto;
+      }
+
+      .ticket-dates li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background: #2f2f2f;
+        border-radius: 10px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+        width: 100%;
+      }
+
+      .ticket-dates .btn-tickets {
+        align-self: center;
+        margin-top: .5rem;
+      }
+
+      .tickets-right .stadium-map {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 0 12px rgba(0, 0, 0, .6);
+      }
+
+      .payment-box {
+        margin-top: 1.5rem;
+        background: #2f2f2f;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        text-align: center;
+        color: #fff;
+        width: 100%;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    .merch {
+      .merch-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        padding: 0 1.5rem;
+      }
+
+      .merch-card {
+        background: #2f2f2f;
+        border-radius: 12px;
+        padding: 16px;
+        box-shadow: 0 10px 18px rgba(0, 0, 0, .4);
+        width: 100%;
+        max-width: 340px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        flex: unset;
+        min-width: unset;
+
+        .media {
+          width: 100%;
+          height: auto;
+          max-height: 360px;
+          border-radius: 10px;
+          background: #3a3a3a;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          overflow: hidden;
+
+          img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            display: block;
+          }
+        }
+
+        .price {
+          color: #f0f0f0;
+          text-align: center;
+          margin-top: 8px;
+        }
+
+        .actions {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          width: 100%;
+          align-items: center;
+        }
+
+        .btn {
+          width: 90%;
+          padding: 10px;
+          border-radius: 8px;
+        }
+
+        .btn-solid {
+          background: var(--accent);
+          color: white;
+          border: none;
+        }
+
+        .btn-transparent {
+          background: transparent;
+          color: var(--accent);
+          border: 1px solid var(--accent);
+        }
+      }
+    }
+  }
+
+  .contact {
+    overflow-x: hidden;
+    padding: 3rem 0;
+
+    .contact-header h2 {
+      font-size: 40px;
+      text-align: center;
+    }
+
+    .contact-content {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 1.5rem;
+      gap: 1.5rem;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .contact-form {
+      margin: 0;
+      max-width: 520px;
+      width: 100%;
+
+      form {
+        gap: .9rem;
+      }
+    }
+
+    .contact-info {
+      max-width: 520px;
+      width: 100%;
+      height: auto;
+      margin-top: 1.5rem;
+      text-align: center;
+
+      p {
+        font-size: 18px;
+        line-height: 1.6;
+      }
+    }
+
+    .button-row {
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .social-login {
+      align-items: center;
+      width: 100%;
+      max-width: 240px;
+      margin-top: 1rem;
+    }
+
+    .contact-logos {
+      justify-content: center;
+      margin-left: 0;
+      gap: 1rem;
+    }
+
+    .contact-map {
+      max-width: 680px;
+      margin: 1.5rem auto;
+      border-radius: 12px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+    }
+
+    .contact-content {
+      max-width: 92%;
+      padding: 1rem;
+    }
+
+    .contact-header h2 {
+      font-size: 32px;
+    }
+
+    .contact-info p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+  }
+
+  .footer-content {
     .footer-container {
       padding-left: 1rem;
       padding-right: 1rem;
@@ -2277,17 +2159,16 @@ body {
 
     .footer-socials {
       flex: unset;
-      transform: scale(0.85);
       gap: 0.4rem;
-    }
 
-    .footer-socials .brand-mark {
-      width: 120px;
-    }
+      .brand-mark {
+        width: 120px;
+      }
 
-    .footer-socials .socials img {
-      width: 20px;
-      height: 20px;
+      .socials img {
+        width: 20px;
+        height: 20px;
+      }
     }
 
     .brand-mark {
@@ -2314,12 +2195,9 @@ body {
     .footer-btn {
       right: auto;
       left: 50%;
-      transform: translateX(-50%);
       top: -2.6rem;
     }
-  }
 
-  @media (max-width: 600px) {
     .subscribe-form {
       flex-direction: column;
       max-width: 100%;
@@ -2343,9 +2221,7 @@ body {
         line-height: 1.8;
       }
     }
-  }
 
-  @media (max-width: 420px) {
     .footer-subscribe h3 {
       letter-spacing: 1px;
     }
