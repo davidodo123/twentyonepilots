@@ -1,608 +1,213 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
-
-:root {
-    --main-color: black;
-    --text-light: white;
-    --accent: #B93C2D;
-    --muted: #bbbbbb;
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html,
-body {
-    font-family: 'Bebas Neue';
-    height: 100%;
-    background: var(--main-color);
-    color: var(--text-light);
-    letter-spacing: .5px;
-}
-
-.hero {
-    position: relative;
-    min-height: 100vh;
-    display: grid;
-    grid-template-rows: auto 1fr;
-    overflow: hidden;
-
-    .hero-nav {
-        position: relative;
-        z-index: 3;
-        display: grid;
-        grid-template-columns: 160px 1fr 160px;
-        padding: 20px 16px;
-        align-items: center;
-
-        .hero-brand img {
-            height: 48px;
-            display: block;
-        }
-
-        .hero-menu {
-            font-family: "Lato";
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-
-            a {
-                font-family: "Lato";
-                font-size: 16px;
-                letter-spacing: 5px;
-                text-decoration: none;
-                color: var(--muted);
-
-                &:hover,
-                &:focus {
-                    color: var(--text-light);
-                }
-            }
-        }
-
-        .hero-icons {
-            display: flex;
-            justify-content: flex-end;
-            gap: 14px;
-
-            .icon {
-                height: 20px;
-                display: block;
-                transition: transform .2s;
-                cursor: pointer;
-
-                &:hover {
-                    transform: scale(1.1);
-                }
-            }
-        }
-    }
-
-    .hero-content {
-        position: relative;
-        z-index: 2;
-        display: grid;
-        place-items: center;
-        text-align: center;
-        padding: 6vh 4vw 10vh;
-        gap: 28px;
-
-        h1 {
-            font-size: 200px;
-            line-height: .9;
-            letter-spacing: 2px;
-        }
-
-        .cta {
-            background: var(--accent);
-            color: #fff;
-            font-family: "Lato";
-            letter-spacing: 1px;
-            font-size: 16px;
-            text-decoration: none;
-            padding: 15px 32px;
-            border: none;
-            cursor: pointer;
-            margin-bottom: 10rem;
-
-            &:hover {
-                background: transparent;
-                border: 1px solid var(--accent);
-            }
-        }
-    }
-
-    .hero-background {
-        position: absolute;
-        inset: 0;
-        z-index: 1;
-        background: url("img/FotoHero.jpg") center/cover no-repeat;
-        opacity: .3;
-        pointer-events: none;
-    }
-
-    .nav-toggle {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        margin: -1px;
-        padding: 0;
-        border: 0;
-        clip: rect(0 0 0 0);
-        overflow: hidden;
-    }
-
-    .hamburger {
-        display: none;
-        position: relative;
-        z-index: 4;
-        width: 44px;
-        height: 44px;
-        border: 1px solid #444;
-        border-radius: 8px;
-        background: rgba(0, 0, 0, .6);
-        backdrop-filter: blur(6px);
-        cursor: pointer;
-        align-items: center;
-        justify-content: center;
-        margin: 12px auto 0;
-
-        .lines {
-            position: relative;
-            width: 24px;
-            height: 2px;
-            background: white;
-            transition: transform .25s ease;
-
-            &::before,
-            &::after {
-                content: "";
-                position: absolute;
-                left: 0;
-                width: 24px;
-                height: 2px;
-                background: white;
-                transition: transform .25s ease, top .25s ease, opacity .2s;
-            }
-
-            &::before {
-                top: -7px;
-            }
-
-            &::after {
-                top: 7px;
-            }
-        }
-    }
-
-    .mobile-menu {
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, .9);
-        -webkit-backdrop-filter: blur(8px);
-        backdrop-filter: blur(8px);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 18px;
-        transform: translateY(-100%);
-        transition: transform .35s ease;
-        z-index: 3;
-
-        a {
-            font-family: "Lato";
-            font-size: 22px;
-            letter-spacing: 6px;
-            text-decoration: none;
-            color: #e6e6e6;
-            opacity: 0;
-            transform: translateY(10px);
-        }
-    }
-
-    #nav-toggle:checked+.hamburger .lines {
-        background: transparent;
-
-        &::before {
-            top: 0;
-            transform: rotate(45deg);
-        }
-
-        &::after {
-            top: 0;
-            transform: rotate(-45deg);
-        }
-    }
-
-    #nav-toggle:checked~.mobile-menu {
-        transform: translateY(0);
-
-        a {
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity .35s ease, transform .35s ease;
-
-            &:nth-child(1) {
-                transition-delay: .05s;
-            }
-
-            &:nth-child(2) {
-                transition-delay: .10s;
-            }
-
-            &:nth-child(3) {
-                transition-delay: .15s;
-            }
-
-            &:nth-child(4) {
-                transition-delay: .20s;
-            }
-
-            &:nth-child(5) {
-                transition-delay: .25s;
-            }
-        }
-    }
-}
-
-@media (max-width: 830px) {
-    .hero {
-        .hero-nav {
-            display: none !important;
-        }
-
-        .hamburger {
-            display: inline-flex !important;
-        }
-
-        .hero-content h1 {
-            font-size: 64px;
-        }
-
-        .hero-content .cta {
-            margin-bottom: 2rem;
-        }
-    }
-}
-
-@media (min-width: 831px) {
-    .hero {
-        .mobile-menu {
-            display: none !important;
-        }
-
-        .hamburger {
-            display: none !important;
-        }
-    }
-}
 
 
-.grammy {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  padding: 40px;
 
 
-  .billboard {
-    flex: 1;
-    display: flex;
+  /* ============================== */
+  /*  CONSOLIDATED RESPONSIVE BELOW  */
+  /* ============================== */
 
-    align-items: center;
-    justify-content: center;
-    padding: 40px;
-    box-sizing: border-box;
+  @media (max-width: 1500px) {
 
-    img {
+    /* timeline */
+    .timeline {
       width: 100%;
-      max-width: 550px;
-      border-radius: 10px;
-      display: block;
-      opacity: .95;
-    }
-
-  }
-
-  .grammy-content {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 40px;
-
-    box-sizing: border-box;
-    flex-direction: column;
-    text-align: center;
-
-    h2 {
-      font-size: 70px;
-      margin-bottom: 20px;
-      letter-spacing: 2px;
-    }
-
-    p {
-      font-family: "Lato";
-      font-size: 24px;
-      line-height: 1.4;
-      max-width: 500px;
-
-      margin: 0 auto 30px;
-      color: #e5e5e5;
-
-    }
-
-    strong {
-      color: var(--accent);
-    }
-
-    .video-grammy {
-      width: 100%;
-      max-width: 700px;
-      aspect-ratio: 16/9;
-      overflow: hidden;
-
-      border-radius: 8px;
-      border: 1px solid #222;
-
-      iframe {
-        width: 100%;
-        height: 100%;
-        display: block;
-      }
-
-    }
-  }
-
-  @media (max-width: 900px) {
-    .awards {
-      flex-direction: column;
-    }
-
-    .awards .left,
-    .awards .right {
-      flex: 1 1 100%;
-      min-height: auto;
-      padding: 24px;
-    }
-  }
-
-
-}
-
-
-
-.bio {
-  background: var(--main-color);
-  color: var(--text-light);
-  padding: 0 0 40px 0;
-  overflow-x: hidden;
-
-  .bio-header {
-    width: 100%;
-    background: var(--accent);
-    padding: 10px 6vw;
-
-    h2 {
-      margin: 0;
-      font-size: 70px;
-      letter-spacing: 2px;
-    }
-  }
-
-  .bio-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-
-    gap: 0;
-    padding: 18px 4vw 0 6vw;
-
-
-
-    .bio-about {
-      max-width: 600px;
-      margin-left: 2.5vw;
-      text-align: justify;
-
-      p {
-        font-family: "Lato";
-        font-weight: 400;
-        font-size: 30px;
-
-        line-height: 44px;
-        letter-spacing: 0;
-        color: #e4e4e4;
-        margin: 3rem 0 0 0;
-        text-align: left;
-      }
-
-      strong {
-        color: var(--accent);
-      }
-    }
-
-    .bio-img-about {
-      position: relative;
+      max-width: 100%;
+      margin: 6rem 1rem 6rem;
       display: flex;
-      align-items: center;
-
-      .about-img {
-        width: 100%;
-        max-width: 660px;
-        height: auto;
-        margin-top: 3rem;
-      }
-
-      .red-band {
-        position: absolute;
-        right: -110px;
-
-        height: 666px;
-        width: 375px;
-        object-fit: contain;
-        margin-top: 3rem;
-      }
+      flex-direction: column;
+      gap: 24px;
     }
 
-  }
+    .timeline .timeline-middle,
+    .timeline .timeline-circle {
+      display: none;
+    }
 
-  .members {
-    display: flex;
-    justify-content: center;
-    gap: 60px;
-    margin-top: 100px;
-
-    flex-wrap: wrap;
-    padding: 0 20px;
-
-    .member-card {
-      background: #111;
-      border-radius: 8px;
-      width: 240px;
-
+    .timeline .timeline-img,
+    .timeline .timeline-content,
+    .timeline .timeline-img.alt,
+    .timeline .timeline-content.alt,
+    .timeline .timeline-content.center {
       text-align: center;
-      box-shadow: 0 0 12px rgba(0, 0, 0, .4);
     }
 
-    .member-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 18px rgba(178, 74, 57, .6);
+    .timeline .timeline-content.center::before {
+      display: none;
     }
 
-    .member-card .member-photo {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
-
-      border-top-left-radius: 8px;
-      border-top-right-radius: 8px;
+    .timeline .timeline-img {
       display: block;
     }
 
-    .member-body {
-      padding: 18px;
-
-      h3 {
-        font-size: 18px;
-        letter-spacing: 1px;
-        margin-bottom: 6px;
-      }
-
-      .age {
-        color: #bbb;
-        margin-bottom: 10px;
-        font-size: 15px;
-      }
-
-      .social-links {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        gap: 1rem;
-        margin-top: 1rem;
-
-        img {
-          width: 26px;
-          height: 26px;
-          object-fit: contain;
-
-
-          img:hover {
-            transform: scale(1.15);
-          }
-        }
-      }
+    .timeline .timeline-img img {
+      width: 60%;
+      max-width: none;
+      height: auto;
+      border: none;
+      box-shadow: none;
+      display: block;
+      margin: 0 auto;
     }
 
-  }
-
-  .bio-about-info {
-    max-width: 1600px;
-    margin-left: 2.5vw;
-    text-align: center;
-
-    margin-top: 3rem;
-    margin-left: 10rem;
-
-    p {
-      font-family: "Lato";
-      font-weight: 400;
-      font-size: 30px;
-
-      line-height: 44px;
-
-      color: #e4e4e4;
-      text-align: left;
-
-    }
-
-    strong {
-      color: var(--accent);
-    }
-
-  }
-
-
-
-  @media (max-width: 900px) {
-
-    /* ---- Encabezado ---- */
-    .bio-header h2 {
-      font-size: 44px;
+    .timeline .timeline-content {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      padding: 0;
       text-align: center;
     }
 
-    /* ---- Contenedor principal ---- */
-    .bio-content {
+    .timeline .timeline-content h3 {
+      font-size: clamp(13px, 2.2vw, 22px);
+      letter-spacing: .5px;
+      margin-top: .5rem;
+    }
+
+    .timeline .timeline-content p {
+      font-size: clamp(10px, 1.6vw, 16px);
+      line-height: 1.6;
+      margin-top: .5rem;
+    }
+
+    /* ontour */
+    .ontour .tour-content {
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .ontour .tour-divider {
+      display: none;
+    }
+
+    .ontour .tour-left,
+    .ontour .tour-right {
+      width: 100%;
+      padding: 0;
+      align-items: center;
+    }
+
+    .ontour .tour-left .band-img {
+      width: 60%;
+      height: auto;
+    }
+
+    .ontour .tour-left .tour-logo {
+      width: 20%;
+      height: auto;
+      margin-top: .5rem;
+    }
+
+    .ontour .tour-right {
+      max-width: 900px;
+    }
+
+    .ontour .tour-info {
+      text-align: center;
+      margin-left: 0;
+    }
+
+    .ontour .tour-info h3 {
+      font-size: clamp(14px, 2.4vw, 24px);
+      line-height: 1.1;
+    }
+
+    .ontour .tour-info p {
+      font-size: clamp(12px, 2vw, 20px);
+      line-height: 1.3;
+    }
+
+    .ontour .tour-img-background {
+      display: none;
+    }
+  }
+
+  @media (max-width: 900px) {
+
+    /* grammy */
+    .grammy {
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      gap: 30px;
+    }
+
+    .grammy .billboard {
+      order: 1;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .grammy .billboard img {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+    }
+
+    .grammy .grammy-content {
+      order: 2;
+      text-align: center;
+      width: 100%;
+      max-width: 600px;
+      padding: 0 1rem;
+    }
+
+    .grammy .grammy-content h2 {
+      font-size: clamp(25px, 4.2vw, 42px);
+    }
+
+    .grammy .grammy-content p {
+      font-size: clamp(11px, 1.8vw, 18px);
+      line-height: 1.6;
+    }
+
+    /* bio */
+    .bio .bio-header h2 {
+      font-size: clamp(26px, 4.4vw, 44px);
+      text-align: center;
+    }
+
+    .bio .bio-content {
       display: flex;
       flex-direction: column;
       align-items: center;
       padding: 18px 6vw;
-      gap: 2rem; /* separaciones visuales */
+      gap: 2rem;
+    }
 
-      /* 1️⃣ Texto primero */
-      .bio-about {
-        order: 1;
-        max-width: 680px;
-        margin: 0 auto;
-        text-align: center;
+    .bio .bio-content .bio-about {
+      order: 1;
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
 
-        p {
-          font-size: 14px;
-          line-height: 20px;
-          text-align: center;
-        }
-      }
+    .bio .bio-content .bio-about p {
+      font-size: clamp(12px, 2vw, 20px);
+      line-height: 2rem;
+      text-align: center;
+    }
 
-      .bio-img-about {
-        order: 2;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 1rem;
+    .bio .bio-content .bio-img-about {
+      order: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 1rem;
+    }
 
-        .about-img {
-          width: 92%;
-          max-width: 520px;
-          height: auto;
-        }
-        .red-band {
-          display: none;
-        }
-      
+    .bio .bio-content .bio-img-about .about-img {
+      width: 92%;
+      max-width: 520px;
+      height: auto;
+    }
 
-      }
-    
+    .bio .bio-content .bio-img-about .red-band {
+      display: none;
+    }
 
-    /* 3️⃣ Miembros al final */
-    .members {
+    .bio .members {
       order: 3;
       display: flex;
       flex-direction: row;
@@ -611,407 +216,507 @@ body {
       gap: 30px;
       margin-top: 3rem;
       padding: 0 20px;
-
-      .member-card {
-        width: 200px;
-        background: #111;
-        border-radius: 8px;
-        text-align: center;
-        box-shadow: 0 0 12px rgba(0, 0, 0, .4);
-        transition: transform .2s;
-
-        &:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 0 18px rgba(178, 74, 57, .6);
-        }
-
-        .member-photo {
-          width: 100%;
-          height: 220px;
-          object-fit: cover;
-          border-top-left-radius: 8px;
-          border-top-right-radius: 8px;
-        }
-
-        .member-body {
-          padding: 18px;
-
-          h3 { font-size: 18px; margin-bottom: 6px; }
-          .age { color: #bbb; font-size: 15px; margin-bottom: 10px; }
-
-          .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
-
-            img {
-              width: 26px;
-              height: 26px;
-              transition: transform .2s;
-              &:hover { transform: scale(1.15); }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-}
-
-
-/*NO IA*/
-.timeline {
-  width: 1600px;
-  margin: 7rem;
-
-  display: grid;
-  grid-template-columns: 1fr 3px 1fr;
-  column-gap: 60px;
-  row-gap: 100px;
-
-  align-items: center;
-  position: relative;
-
-  .timeline-middle {
-    position: relative;
-    background: var(--accent);
-    width: 3px;
-    height: 100%;
-  }
-
-  .timeline-circle {
-    position: absolute;
-    left: 50%;
-    top: 0;
-    transform: translate(-50%, -50%);
-    width: 18px;
-    height: 18px;
-
-    background: var(--accent);
-    border-radius: 50%;
-  }
-
-  .timeline-img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .timeline-img img {
-    width: 600px;
-    height: auto;
-    border-radius: 10px;
-    border: 1px solid #464646;
-
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
-  }
-
-  .timeline-img.alt {
-    grid-column: 3 / 4;
-  }
-
-  .timeline-content {
-    font-family: "Lato";
-    background: #000;
-    border: 1px solid #222;
-    border-radius: 8px;
-    color: #fff;
-
-    padding: 2.5rem 3rem;
-
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
-
-
-    h3 {
-      margin-top: 1rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      font-size: 32px;
     }
 
-    p {
-      margin-top: 1rem;
-      letter-spacing: 1px;
-      line-height: 1.7;
-      font-size: 22px;
+    .bio .members .member-card {
+      width: 200px;
+      transition: transform .2s;
     }
 
-    strong {
-      color: var(--accent);
+    .bio .members .member-card .member-photo {
+      width: 100%;
+      height: 220px;
     }
 
-    .timeline-content.alt {
-      grid-column: 1 / 2;
-      text-align: right;
-    }
-  }
-
-  .timeline-content.center {
-    grid-column: 1 / 4;
-    justify-self: center;
-    text-align: center;
-    max-width: 600px;
-    margin-top: 2rem;
-
-    position: relative;
-  }
-
-  .timeline-content.center::before {
-    content: "";
-    position: absolute;
-    top: 22px;
-    left: 50%;
-
-    transform: translateX(-50%);
-    width: 18px;
-    height: 18px;
-
-    background: var(--accent);
-    border-radius: 50%;
-    box-shadow: 0 0 0 2px #222;
-  }
-
-  @media (max-width: 900px) {
-    .timeline {
-      grid-template-columns: 1fr;
+    .bio .members .member-card .member-body h3 {
+      font-size: clamp(11px, 1.8vw, 18px);
     }
 
-    .timeline-middle {
-      display: none;
+    .bio .members .member-card .member-body .age {
+      font-size: clamp(9px, 1.5vw, 15px);
     }
 
-    .timeline-content,
-    .timeline-content.alt {
+    .bio .bio-about-info {
+      order: 2;
+      max-width: 680px;
+      margin: 2rem 2rem 2rem;
       text-align: center;
     }
 
-    .timeline-img img {
-      width: 100%;
-      max-width: 500px;
+    .bio .bio-about-info p {
+      font-size: clamp(12px, 2vw, 20px);
+      line-height: 2rem;
+      text-align: center;
     }
 
-    .timeline-content.center {
-      grid-column: 1;
-      margin-top: 4rem;
-    }
-  }
-
-}
-
-
-
-
-
-/* ================= ALBUMS ================= */
-.albums {
-  background: var(--main-color);
-  color: var(--text-light);
-  padding: 0 0 60px 0;
-
-
-  .albums-header {
-    width: 100%;
-    background: var(--accent);
-    padding: 12px 6vw;
-    text-align: center;
-
-    h2 {
+    /* albums */
+    .albums .albums-disc {
       margin: 0;
-      font-size: 70px;
-      letter-spacing: 2px;
-    }
-  }
-
-
-  .albums-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 28px;
-
-    padding: 40px 28px;
-    margin-left: 7rem;
-    margin-right: 7rem;
-
-    iframe {
-      width: 100%;
-      max-width: 420px;
-
-      height: 352px;
-      border-radius: 12px;
-      border: none;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
-
-      flex-basis: 350px;
-      flex-grow: 1;
-    }
-  }
-
-
-  .latest-album {
-    position: relative;
-    background-color: var(--main-color);
-    color: var(--text-light);
-
-    padding: 80px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    justify-content: center;
-
-    overflow: hidden;
-  }
-
-  .latest-album-bg {
-    position: absolute;
-    inset: 0;
-    opacity: 0.17;
-
-    transform: scaleX(-1);
-    z-index: 1;
-    pointer-events: none;
-  }
-
-
-  .latest-album-content {
-    position: relative;
-    z-index: 2;
-
-    text-align: center;
-    max-width: 800px;
-    width: 100%;
-
-    h2 {
-      font-size: 70px;
-      letter-spacing: 2px;
-      margin-bottom: 40px;
-      line-height: 1.1;
     }
 
-    span {
-      color: var(--accent);
-    }
-  }
-
-  .Cancion-spotify {
-    display: flex;
-    align-items: flex-start;
-
-    justify-content: center;
-    gap: 20px;
-
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 8px 12px;
-  }
-
-  .latest-album-container {
-    background: #282828;
-    border: 1px solid gray;
-    border-radius: 12px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
-
-    padding: 16px;
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-
-
-  }
-
-  .latest-album-cover-img {
-    width: 100%;
-    max-width: 230px;
-    height: auto;
-
-    border-radius: 10px;
-    object-fit: cover;
-    flex-shrink: 0;
-    display: block;
-  }
-
-  .latest-album-reproducer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    height: 100%;
-    flex: 2;
-    min-width: 380px;
-    padding-bottom: 2rem;
-
-    iframe {
-      width: min(100%, 520px);
-      height: 100%;
-      border: 0;
-      border-radius: 12px;
-    }
-  }
-
-
-
-  .tracklist-grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-
-    gap: 8px;
-    width: 100%;
-    justify-items: center;
-    margin-top: 8px;
-
-    iframe {
-      width: 100%;
-      max-width: 340px;
-      height: 100px;
-      border-radius: 12px;
-      border: none;
-    }
-  }
-
-
-
-
-  @media (max-width: 768px) {
-
-    .albums-grid {
-      padding-left: 20px;
-      padding-right: 20px;
+    .albums .latest-album {
+      padding: 50px 15px;
     }
 
-    .latest-album {
-      padding: 60px 15px;
-    }
-
-    .latest-album-content h2 {
-      font-size: 30px;
+    .albums .latest-album-content h2 {
+      font-size: clamp(18px, 3vw, 30px);
       margin-bottom: 30px;
     }
 
-    .latest-album-container {
+    .albums .latest-album-container {
       max-width: 90%;
       gap: 20px;
     }
 
-    .latest-album-cover-img {
+    .albums .latest-album-cover-img {
       width: 100%;
       max-width: 250px;
     }
 
-    .tracklist-grid-container {
-      grid-template-columns: 1fr;
+    .albums .tracklist-grid-container {
       gap: 10px;
     }
 
-    .tracklist-grid-container iframe {
+    .albums .tracklist-grid-container iframe {
       height: 80px;
+      max-width: 280px;
+    }
 
+    .albums .Cancion-spotify {
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .albums .latest-album-reproducer {
+      transform: none;
+      width: 100%;
+      min-width: 0;
+      height: 160px;
+      padding-top: 0;
+    }
+
+    .albums .latest-album-reproducer iframe {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* ontour (extra) */
+    .ontour .tour-left .band-img {
+      width: 90%;
+      max-width: 520px;
+    }
+
+    .ontour .tour-info h3 {
+      font-size: clamp(17px, 2.8vw, 28px);
+    }
+
+    .ontour .tour-info ul {
+      font-size: clamp(11px, 1.8vw, 18px);
+    }
+
+    /* ontour tickets */
+    .ontour .tickets .tickets-steps {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 2rem;
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      box-sizing: border-box;
+    }
+
+    .ontour .tickets .tickets-left,
+    .ontour .tickets .tickets-right {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .ontour .tickets .ticket-dates {
+      width: 100%;
+    }
+
+    .ontour .tickets .ticket-dates li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: #2f2f2f;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+      width: 100%;
+    }
+
+    .ontour .tickets .ticket-dates .btn-tickets {
+      align-self: center;
+      margin-top: .5rem;
+    }
+
+    .ontour .tickets .tickets-right .stadium-map {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, .6);
+    }
+
+    .ontour .tickets .payment-box {
+      margin-top: 1.5rem;
+      background: #111;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      text-align: center;
+      color: #fff;
+      width: 100%;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* merch */
+    .merch-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      padding: 0 1.5rem;
+    }
+
+    .merch-card {
+      padding: 16px;
+      box-shadow: 0 10px 18px rgba(0, 0, 0, .4);
+      width: 100%;
+      max-width: 340px;
+    }
+
+    .merch-card .media {
+      width: 100%;
+      height: auto;
+      max-height: 360px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .merch-card .media img {
+      width: 100%;
+      height: auto;
+    }
+
+    .merch-card .price {
+      font-size: clamp(14px, 2.4vw, 24px);
+    }
+
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+      align-items: center;
+    }
+
+    .btn {
+      width: 90%;
+      font-size: clamp(9px, 1.4vw, 14px);
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    .btn-solid {
+      background: var(--accent);
+      color: white;
+      border: none;
+    }
+
+    .btn-transparent {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+    }
+
+    /* contact */
+    .contact {
+      padding: 3rem 0;
+    }
+
+    .contact .contact-header h2 {
+      font-size: clamp(20px, 4vw, 40px);
+      text-align: center;
+    }
+
+    .contact .contact-content {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 1.5rem;
+      gap: 1.5rem;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .contact .contact-form {
+      transform: none;
+      margin: 0;
+      max-width: 520px;
+      width: 100%;
+    }
+
+    .contact .contact-form form {
+      gap: .9rem;
+    }
+
+    .contact .contact-info {
+      max-width: 520px;
+      width: 100%;
+      height: auto;
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+
+    .contact .contact-info p {
+      font-size: clamp(11px, 1.8vw, 18px);
+      line-height: 1.6;
+    }
+
+    .contact .button-row {
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .contact .social-login {
+      align-items: center;
+      width: 100%;
+      max-width: 240px;
+      margin-top: 1rem;
+    }
+
+    .contact .contact-logos {
+      justify-content: center;
+      margin-left: 0;
+      gap: 1rem;
+    }
+
+    .contact .contact-map {
+      max-width: 680px;
+      margin: 1.5rem auto;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .contact .contact-map img {
+      width: 100%;
+      height: auto;
+    }
+
+    /* footer */
+    .footer-content .footer-container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    .footer-content .footer-subscribe {
+      padding: 3rem 0 1.5rem;
+    }
+
+    .footer-content .subscribe-form {
+      max-width: 520px;
+      width: 100%;
+    }
+
+    .footer-content .subscribe-agree {
+      margin: .8rem auto 1.2rem;
+      max-width: 520px;
+      justify-content: center;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .footer-content .privacy-note {
+      max-width: 520px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .footer-content .privacy-note a {
+      margin-right: 0;
+    }
+
+    .footer-content .footer-main {
+      padding: 2rem 0 2.5rem;
+    }
+
+    .footer-content .footer-div {
+      gap: 1.5rem;
+      justify-items: center;
+      text-align: center;
+    }
+
+    .footer-content .footer-socials {
+      transform: scale(0.85);
+      gap: 0.4rem;
+    }
+
+    .footer-content .footer-socials .brand-mark {
+      width: 120px;
+    }
+
+    .footer-content .footer-socials .socials img {
+      width: 20px;
+      height: 20px;
+    }
+
+    .footer-content .brand-mark {
+      margin: 0 auto;
+    }
+
+    .footer-content .footer-columns {
+      margin-left: 0;
+      justify-items: center;
+    }
+
+    .footer-content .footer-columns h4 {
+      text-align: center;
+    }
+
+    .footer-content .footer-ticketmaster {
+      justify-content: center;
+      margin-top: .5rem;
+    }
+
+    .footer-content .footer-btn {
+      right: auto;
+      left: 50%;
+      transform: translateX(-50%);
+      top: -2.6rem;
+    }
+  }
+
+  @media (max-width: 830px) {
+    .hero {
+      overflow-x: hidden;
+    }
+
+    .hero .hero-nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex !important;
+      align-items: center;
+      padding: 12px 16px;
+      background: transparent;
+      z-index: 4;
+    }
+
+    .hero .hero-nav .hero-brand img {
+      height: 40px;
+      display: block;
+    }
+
+    .hero .hero-nav .hero-menu,
+    .hero .hero-nav .hero-icons {
+      display: none !important;
+    }
+
+    .hero .hamburger {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      left: auto;
+      transform: none;
+      display: inline-flex !important;
+      margin: 0;
+      z-index: 5;
+    }
+
+    .hero .hero-content {
+      margin-top: 7rem;
+      gap: 12px;
+    }
+
+    .hero .hero-content h1 {
+      font-size: clamp(42px, 7vw, 70px);
+      line-height: 1;
+    }
+
+    .hero .hero-content .cta {
+      margin-top: 3rem;
+    }
+
+    .hero .hero-background {
+      background-image: url("img/FotoHero.jpg");
+      background-size: cover;
+      background-position: center top;
+      background-repeat: no-repeat;
+    }
+
+    .hero #nav-toggle:not(:checked)~.mobile-menu {
+      transform: translateY(-100%);
+      pointer-events: none;
+    }
+  }
+
+  @media (min-width: 831px) {
+    .hero {
+      overflow-x: hidden;
+    }
+
+    .hero .mobile-menu {
+      display: none !important;
+    }
+
+    .hero .hamburger {
+      display: none !important;
+      position: static;
+    }
+
+    .hero .hero-background {
+      background-image: url("img/FotoHero.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+  }
+
+  @media (max-width: 768px) {
+
+    /* albums strict breakpoint */
+    .albums .albums-grid {
+      margin: 0;
+    }
+
+    .albums .latest-album {
+      padding: 50px 15px;
+    }
+
+    .albums .latest-album-content h2 {
+      font-size: clamp(18px, 3vw, 30px);
+      margin-bottom: 30px;
+    }
+
+    .albums .latest-album-container {
+      max-width: 90%;
+      gap: 20px;
+    }
+
+    .albums .latest-album-cover-img {
+      width: 100%;
+      max-width: 250px;
+    }
+
+    .albums .tracklist-grid-container {
+      gap: 10px;
+    }
+
+    .albums .tracklist-grid-container iframe {
+      height: 80px;
       max-width: 280px;
     }
 
@@ -1033,1178 +738,1615 @@ body {
       width: 100%;
       height: 100%;
     }
+  }
 
-    .tracklist-grid-container {
-      gap: 10px;
+  @media (max-width: 600px) {
+
+    /* footer */
+    .footer-content .subscribe-form {
+      flex-direction: column;
+      max-width: 100%;
     }
 
-    .tracklist-grid-container iframe {
-      height: 80px;
-      max-width: 280px;
+    .footer-content .btn-subscribe {
+      width: 100%;
+    }
+
+    .footer-content .footer-columns {
+      gap: 1.25rem;
+    }
+
+    .footer-content .footer-bottom-content p {
+      line-height: 1.8;
     }
   }
 
+  @media (max-width: 480px) {
+    .contact .contact-content {
+      max-width: 92%;
+      padding: 1rem;
+    }
+
+    .contact .contact-header h2 {
+      font-size: clamp(19px, 3.2vw, 32px);
+    }
+
+    .contact .contact-info p {
+      font-size: clamp(10px, 1.6vw, 16px);
+      line-height: 1.6;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .footer-content .footer-subscribe h3 {
+      font-size: clamp(13px, 2.2vw, 22px);
+      letter-spacing: 1px;
+    }
+
+    .footer-content .subscribe-agree,
+    .footer-content .privacy-note {
+      font-size: clamp(6px, 1vw, 10px);
+    }
+
+    .footer-content .ticketmaster-logo {
+      max-width: 260px;
+    }
+  }
+
+  /* ==============================
+   FLEX OVERRIDES (replace all CSS Grid with Flexbox)
+   ============================== */
+
+  /* HERO */
+  .hero {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .hero .hero-nav {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+
+  .hero .hero-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* Mobile nav override that previously forced grid */
+  @media (max-width: 830px) {
+    .hero .hero-nav {
+      display: flex !important;
+      justify-content: space-between !important;
+    }
+  }
+
+  /* BIO */
+  .bio .bio-content {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 0 !important;
+  }
+
+  /* TIMELINE already uses flex; no change needed */
+
+  /* ALBUMS */
+  .albums .tracklist-grid-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 10px !important;
+  }
+
+  /* MERCH */
+  .merch-containere {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 28px 32px !important;
+  }
+
+  /* CONTACT (no grid used in wrappers, keep flex) */
+
+  /* FOOTER */
+  .footer-div {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: flex-start !important;
+    gap: 3rem !important;
+  }
+
+  .footer-columns {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 2.5rem !important;
+  }
+
+  /* Generic safety: if any leftover "display: grid" sneaks in on small screens */
+  @media (max-width: 900px) {
+
+    .footer-div,
+    .footer-columns {
+      display: flex !important;
+    }
+  }
+
+  margin-bottom: 1rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+
+  input[type="email"] {
+    flex: 1;
+    background: white;
+    color: black;
+    border: none;
+    padding: 8px 10px;
+    font-size: clamp(8px, 1.4vw, 14px);
+    outline: none;
+  }
 }
 
+.btn-subscribe {
+  font-family: "Lato";
+  font-size: clamp(10px, 1.6vw, 16px);
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: all .2s ease;
+}
 
-/* ================= ON TOUR ================= */
-.ontour {
-  background: var(--main-color);
-  color: var(--text-light);
-  padding: 2rem 0 3rem 0;
+.subscribe-agree {
+  display: flex;
+  font-family: "Lato";
+  font-size: clamp(5px, 0.8vw, 8px);
+  color: #cfcfcf;
+  gap: .6rem;
+  margin: .6rem 0 1.2rem;
+  margin-left: 28.5rem;
+}
 
-  font-family: 'Bebas Neue';
-  margin-bottom: 0;
+.privacy-note {
+  font-family: "Lato";
+  font-size: clamp(5px, 0.8vw, 8px);
+  color: #cfcfcf;
+  text-align: center;
 
-  .ontour-header {
-    width: 100%;
-    background: var(--accent);
-    padding: 12px 6vw;
-    text-align: center;
-
-    h2 {
-      margin: 0;
-      font-size: 70px;
-      letter-spacing: 2px;
-    }
+  a {
+    color: white;
+    text-decoration: underline;
+    margin-right: 21rem;
   }
+}
 
-  .ontour-left {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: 1fr;
-    gap: 16px;
-    padding-top: 2rem;
-    text-align: center;
+.footer-main {
+  padding: 2.5rem 0 3.5rem;
+}
 
-    span {
-      color: (--accent);
-      font-size: 30px;
-      letter-spacing: 1px;
-    }
-  }
+.footer-div {
+  display: grid;
+  grid-template-columns: 220px 1fr auto;
+  gap: 3rem;
+  align-items: start;
+}
 
+.footer-socials {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: center;
+  gap: 1rem;
 
-  .ontour-video {
-    max-width: 960px;
-    margin: 1rem auto 0;
-    padding: 1rem;
-    padding-top: 6rem;
-
-    iframe {
-      width: 100%;
-      aspect-ratio: 16/9;
-      height: auto;
-      display: block;
-
-      background: black;
-      border: 0;
-      border-radius: 6px;
-
-      box-shadow: 0 0 10px rgba(0, 0, 0, .25);
-    }
-  }
-
-
-
-  .get-tickets {
-    text-align: center;
-    margin: 30px 0;
-    padding-top: 3rem;
-  }
-
-  .btn-tickets {
-    background: var(--accent);
-    color: #fff;
-    text-decoration: none;
-    font-family: "Lato";
-    letter-spacing: 1px;
-    font-size: 16px;
-    padding: 15px 32px;
-
-    border: none;
-    cursor: pointer;
-    transition: all .2s ease;
-  }
-
-  .btn-tickets:hover {
-    background: transparent;
-    border: 1px solid var(--accent);
-    transition: background .2s, color .2s, transform .05s;
-  }
-
-
-  .tour-content {
-    position: relative;
+  .socials {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-
-    max-width: 1600px;
-    margin: 0 auto;
-    padding: 40px 20px;
-    margin-top: 10rem;
-  }
-
-  .tour-divider {
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-
-    width: 2px;
-    background-color: var(--accent);
-    transform: translateX(-50%);
-  }
-
-  .tour-left {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    position: relative;
-
-    justify-content: flex-start;
-    align-items: center;
-    gap: 20px;
-    padding-right: 60px;
-    padding-top: 10rem;
-
-    .band-img {
-      width: 750px;
-      height: auto;
-      object-fit: cover;
-      margin-right: 2rem;
-    }
-
-    .tour-logo {
-      width: 100px;
-      height: 100px;
-      margin-top: 10px;
-    }
-  }
-
-  .tour-right {
-    width: 50%;
-    display: flex;
-
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-
-    overflow: visible;
-    color: #fff;
-    font-family: "Lato";
-    font-size: 10px;
-  }
-
-  .tour-img-background {
-    position: absolute;
-    top: 50%;
-    right: calc(-50vw + 100%);
-    transform: translateY(-50%);
-    opacity: .2;
-    z-index: 0;
+    gap: 13px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 
     img {
-      width: 850px;
-      height: auto;
+      width: 28px;
+      height: 28px;
       object-fit: contain;
+      filter: none;
+      opacity: 1;
     }
 
-  }
-
-  .tour-info {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 1);
-    margin-left: 250px;
-
-
-    h3 {
-      font-size: 50px;
-      color: #fff;
-      margin-bottom: 12px;
-      letter-spacing: 1px;
-
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      line-height: 1.3;
-      font-size: 24px;
+    img:hover {
+      transform: scale(1.1);
+      opacity: 0.8;
     }
   }
+}
 
+.brand-mark {
+  width: 200px;
+  height: auto;
+  display: block;
+}
 
-  @media (max-width: 1100px) {
+.footer-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(160px, 1fr));
+  gap: 2.5rem;
+  margin-left: 30rem;
 
-    .ontour-strip {
-      gap: 10px;
-    }
-
-    .ontour-strip span {
-      font-size: 14px;
-    }
-
-    .tour-content {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .tour-divider {
-      display: none;
-    }
-
-    .tour-left,
-    .tour-right {
-      width: 100%;
-      padding: 0;
-      align-items: center;
-    }
-
-    .tour-info {
-      text-align: center;
-      margin-left: 0;
-    }
-
-    .tour-image-bg {
-      position: static;
-      opacity: .25;
-      margin-top: 20px;
-    }
-
-    .tour-image-bg img {
-      width: 300px;
-    }
+  h4 {
+    font-family: "Lato";
+    font-size: clamp(8px, 1.4vw, 14px);
+    letter-spacing: 1px;
+    margin-bottom: .8rem;
+    color: white;
   }
 
-
-
-  .tickets {
-    background: #464646;
-    color: var(--text-light);
-
-    padding: 2rem 0 3rem 0;
-    font-family: 'Bebas Neue';
-
-    margin-bottom: 0;
-    margin-top: 7rem;
-
-    .tickets-header {
-      width: 100%;
-      background: var(--accent);
-
-      padding: 12px 6vw;
-      text-align: center;
-      margin-bottom: 3rem;
-      margin-top: -2rem;
-
-      h2 {
-        margin: 0;
-        font-size: 70px;
-        letter-spacing: 2px;
-      }
-    }
-
-    .tickets-steps {
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 8rem;
-    }
-
-    .tickets-left {
-      flex: 1;
-      margin-left: 8rem;
-
-      h3 {
-        font-size: 26px;
-        font-family: 'Bebas Neue';
-        letter-spacing: 1px;
-
-        margin-bottom: 20px;
-        color: white;
-        text-align: left;
-
-      }
-    }
-
-    .ticket-dates {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      padding: 0;
-      margin: 0;
-      font-family: 'Bebas Neue';
-
-      li {
-        font-size: 22px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        background: #2f2f2f;
-        padding: 10px 14px;
-        border-radius: 6px;
-
-
-        color: #eaeaea;
-        letter-spacing: 1px;
-      }
-
-      .date-box {
-        display: inline-block;
-        background: #333;
-        border-radius: 4px;
-
-        padding: 10px 14px;
-        text-align: center;
-        margin-right: 12px;
-
-        line-height: 1.1;
-        font-size: 20px;
-        color: #fff;
-
-        .btn-tickets {
-          font-size: 16px;
-          background: var(--accent);
-          color: #fff;
-          text-decoration: none;
-          font-family: 'Bebas Neue';
-          letter-spacing: 1px;
-
-          padding: 15px 32px;
-          border: none;
-          cursor: pointer;
-          transition: all .2s ease;
-        }
-
-        .btn-tickets:hover {
-          background: transparent;
-          border: 1px solid var(--accent);
-        }
-
-
-
-      }
-
-    }
-
-    .tickets-right {
-      flex: 1;
-      text-align: center;
-
-      h3 {
-        font-size: 22px;
-        letter-spacing: 1px;
-        margin-bottom: 20px;
-
-        color: white;
-        font-family: 'Bebas Neue';
-      }
-
-
-
-
-    }
-
-    .stadium-map {
-      width: 100%;
-      max-width: 600px;
-      border-radius: 10px;
-      opacity: 0.95;
-    }
-
-    .payment-box {
-      display: flex;
-      justify-content: center;
-
-      align-items: center;
-      gap: 1.5rem;
-      margin-top: 2rem;
-      font-family: 'Bebas Neue';
-
-      .step {
-        color: #fff;
-        font-size: 1.6rem;
-        letter-spacing: 1px;
-      }
-
-      .total {
-        background: var(--accent);
-        color: white;
-        font-size: 1.6rem;
-        padding: 10px 24px;
-
-        border-radius: 4px;
-        letter-spacing: 1px;
-      }
-    }
-
-
-    @media (max-width: 900px) {
-      .tickets-steps {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .tickets-left,
-      .tickets-right {
-        flex: 1 1 100%;
-      }
-
-      .ticket-dates li {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-      }
-
-      .ticket-dates .btn-tickets {
-        align-self: flex-end;
-      }
-
-      .tickets-right .stadium-map {
-        max-width: 100%;
-      }
-    }
-
-  }
-
-
-  .merch {
-    color: var(--text-light);
-    padding: 2rem 0 3rem 0;
-    font-family: 'Bebas Neue';
+  ul {
+    list-style: none;
+    padding: 0;
     margin: 0;
   }
 
-  .merch-header {
+  li {
+    margin: .4rem 0;
+    font-family: "Lato";
+    font-size: .7rem;
+  }
+
+  a {
+    color: #dcdcdc;
+    text-decoration: none;
+    font-family: "Lato";
+    font-size: clamp(6px, 1vw, 10px);
+  }
+
+  a:hover {
+    color: white;
+  }
+}
+
+.footer-ticketmaster {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.ticketmaster-logo {
+  max-width: 400px;
+  height: auto;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.3));
+}
+
+.footer-bottom {
+  background: #464646;
+  color: var(--text-light);
+  font-size: 0.4rem;
+  padding: 1.5rem 0 0.5rem 0;
+  position: relative;
+
+  hr {
+    border: none;
+    border-top: 2px solid white;
+    opacity: 0.8;
+    margin: 0 2vw 1rem 2vw;
+  }
+}
+
+.footer-bottom-content {
+  font-family: "Lato";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-wrap: wrap;
+  text-align: center;
+  gap: 0.3rem;
+
+  p {
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  a {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  a:hover {
+    color: var(--accent);
+  }
+}
+
+.footer-btn {
+  position: absolute;
+  right: 2vw;
+  top: -2.8rem;
+  padding: 8px;
+}
+
+.go-to-hero img {
+  width: 40px;
+  height: 40px;
+}
+
+
+
+@media (max-width: 900px) {
+
+  overflow-x: hidden;
+
+  .footer-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .footer-subscribe {
+    padding: 3rem 0 1.5rem;
+  }
+
+  .subscribe-form {
+    max-width: 520px;
     width: 100%;
-    background: var(--accent);
-    padding: 12px 6vw;
+  }
 
+  .subscribe-agree {
+    margin: .8rem auto 1.2rem;
+    max-width: 520px;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .privacy-note {
+    max-width: 520px;
+    margin: 0 auto;
     text-align: center;
-    margin-bottom: 3rem;
-    margin-top: -2rem;
 
-    h2 {
-      margin: 0;
-      font-size: 70px;
-      letter-spacing: 2px;
+    a {
+      margin-right: 0;
+    }
+  }
+
+  .footer-main {
+    padding: 2rem 0 2.5rem;
+  }
+
+  .footer-div {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .footer-socials {
+    transform: scale(0.85);
+    gap: 0.4rem;
+  }
+
+  .footer-socials .brand-mark {
+    width: 120px;
+  }
+
+  .footer-socials .socials img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .brand-mark {
+    margin: 0 auto;
+  }
+
+  .footer-columns {
+    margin-left: 0;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+
+    h4 {
       text-align: center;
     }
   }
 
-  .merch-grid {
-    width: min(2000px, 90vw);
-    margin: 32px auto 80px;
-
-    display: grid;
-    grid-template-columns: repeat(3, minmax(240px, 1fr));
-    gap: 28px 32px;
+  .footer-ticketmaster {
+    justify-content: center;
+    margin-top: .5rem;
   }
 
-  .merch-card {
-    background: #2f2f2f;
-    border-radius: 12px;
-    padding: 20px 10px 20px;
+  .footer-btn {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -2.6rem;
+  }
+}
 
-    box-shadow: 0 60px 18px rgba(0, 0, 0, .35);
+@media (max-width: 600px) {
+  overflow-x: hidden;
 
+  .subscribe-form {
+    flex-direction: column;
+    max-width: 100%;
+  }
+
+  .btn-subscribe {
+    width: 100%;
+  }
+
+  .footer-columns {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .footer-bottom-content {
+    p {
+      line-height: 1.8;
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .footer-subscribe h3 {
+    font-size: clamp(13px, 2.2vw, 22px);
+    letter-spacing: 1px;
+  }
+
+  .subscribe-agree,
+  .privacy-note {
+    font-size: clamp(6px, 1vw, 10px);
+  }
+
+  .ticketmaster-logo {
+    max-width: 260px;
+  }
+}
+
+}
+
+/* ============================== */
+/*  CONSOLIDATED RESPONSIVE BELOW  */
+/* ============================== */
+
+@media (max-width: 1500px) {
+
+  /* timeline */
+  .timeline {
+    width: 100%;
+    max-width: 100%;
+    margin: 6rem 1rem 6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .timeline .timeline-middle,
+  .timeline .timeline-circle {
+    display: none;
+  }
+
+  .timeline .timeline-img,
+  .timeline .timeline-content,
+  .timeline .timeline-img.alt,
+  .timeline .timeline-content.alt,
+  .timeline .timeline-content.center {
+    text-align: center;
+  }
+
+  .timeline .timeline-content.center::before {
+    display: none;
+  }
+
+  .timeline .timeline-img {
+    display: block;
+  }
+
+  .timeline .timeline-img img {
+    width: 60%;
+    max-width: none;
+    height: auto;
+    border: none;
+    box-shadow: none;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .timeline .timeline-content {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    text-align: center;
+  }
+
+  .timeline .timeline-content h3 {
+    font-size: clamp(13px, 2.2vw, 22px);
+    letter-spacing: .5px;
+    margin-top: .5rem;
+  }
+
+  .timeline .timeline-content p {
+    font-size: clamp(10px, 1.6vw, 16px);
+    line-height: 1.6;
+    margin-top: .5rem;
+  }
+
+  /* ontour */
+  .ontour .tour-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .ontour .tour-divider {
+    display: none;
+  }
+
+  .ontour .tour-left,
+  .ontour .tour-right {
+    width: 100%;
+    padding: 0;
+    align-items: center;
+  }
+
+  .ontour .tour-left .band-img {
+    width: 60%;
+    height: auto;
+  }
+
+  .ontour .tour-left .tour-logo {
+    width: 20%;
+    height: auto;
+    margin-top: .5rem;
+  }
+
+  .ontour .tour-right {
+    max-width: 900px;
+  }
+
+  .ontour .tour-info {
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .ontour .tour-info h3 {
+    font-size: clamp(14px, 2.4vw, 24px);
+    line-height: 1.1;
+  }
+
+  .ontour .tour-info p {
+    font-size: clamp(12px, 2vw, 20px);
+    line-height: 1.3;
+  }
+
+  .ontour .tour-img-background {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+
+  /* grammy */
+  .grammy {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 30px;
+  }
+
+  .grammy .billboard {
+    order: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .grammy .billboard img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+  }
+
+  .grammy .grammy-content {
+    order: 2;
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    padding: 0 1rem;
+  }
+
+  .grammy .grammy-content h2 {
+    font-size: clamp(25px, 4.2vw, 42px);
+  }
+
+  .grammy .grammy-content p {
+    font-size: clamp(11px, 1.8vw, 18px);
+    line-height: 1.6;
+  }
+
+  /* bio */
+  .bio .bio-header h2 {
+    font-size: clamp(26px, 4.4vw, 44px);
+    text-align: center;
+  }
+
+  .bio .bio-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
-
-    .media {
-      width: auto;
-      height: 540px;
-      border-radius: 8px;
-
-      background: #3a3a3a;
-      display: grid;
-      place-items: center;
-
-      overflow: hidden;
-      margin: 0;
-    }
-
-    .media img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-    }
-
-    .price {
-      font-size: 32px;
-      color: #d7d7d7;
-      margin-top: 6px;
-    }
+    padding: 18px 6vw;
+    gap: 2rem;
   }
 
+  .bio .bio-content .bio-about {
+    order: 1;
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .bio .bio-content .bio-about p {
+    font-size: clamp(12px, 2vw, 20px);
+    line-height: 2rem;
+    text-align: center;
+  }
+
+  .bio .bio-content .bio-img-about {
+    order: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+  }
+
+  .bio .bio-content .bio-img-about .about-img {
+    width: 92%;
+    max-width: 520px;
+    height: auto;
+  }
+
+  .bio .bio-content .bio-img-about .red-band {
+    display: none;
+  }
+
+  .bio .members {
+    order: 3;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 3rem;
+    padding: 0 20px;
+  }
+
+  .bio .members .member-card {
+    width: 200px;
+    transition: transform .2s;
+  }
+
+  .bio .members .member-card .member-photo {
+    width: 100%;
+    height: 220px;
+  }
+
+  .bio .members .member-card .member-body h3 {
+    font-size: clamp(11px, 1.8vw, 18px);
+  }
+
+  .bio .members .member-card .member-body .age {
+    font-size: clamp(9px, 1.5vw, 15px);
+  }
+
+  .bio .bio-about-info {
+    order: 2;
+    max-width: 680px;
+    margin: 2rem 2rem 2rem;
+    text-align: center;
+  }
+
+  .bio .bio-about-info p {
+    font-size: clamp(12px, 2vw, 20px);
+    line-height: 2rem;
+    text-align: center;
+  }
+
+  /* albums */
+  .albums .albums-grid {
+    margin: 0;
+  }
+
+  .albums .latest-album {
+    padding: 50px 15px;
+  }
+
+  .albums .latest-album-content h2 {
+    font-size: clamp(18px, 3vw, 30px);
+    margin-bottom: 30px;
+  }
+
+  .albums .latest-album-container {
+    max-width: 90%;
+    gap: 20px;
+  }
+
+  .albums .latest-album-cover-img {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .albums .tracklist-grid-container {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .albums .tracklist-grid-container iframe {
+    height: 80px;
+    max-width: 280px;
+  }
+
+  .albums .Cancion-spotify {
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .albums .latest-album-reproducer {
+    transform: none;
+    width: 100%;
+    min-width: 0;
+    height: 160px;
+    padding-top: 0;
+  }
+
+  .albums .latest-album-reproducer iframe {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* ontour (extra) */
+  .ontour .tour-left .band-img {
+    width: 90%;
+    max-width: 520px;
+  }
+
+  .ontour .tour-info h3 {
+    font-size: clamp(17px, 2.8vw, 28px);
+  }
+
+  .ontour .tour-info ul {
+    font-size: clamp(11px, 1.8vw, 18px);
+  }
+
+  /* ontour tickets */
+  .ontour .tickets .tickets-steps {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 2rem;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    box-sizing: border-box;
+  }
+
+  .ontour .tickets .tickets-left,
+  .ontour .tickets .tickets-right {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .ontour .tickets .ticket-dates {
+    width: 100%;
+  }
+
+  .ontour .tickets .ticket-dates li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #2f2f2f;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+    width: 100%;
+  }
+
+  .ontour .tickets .ticket-dates .btn-tickets {
+    align-self: center;
+    margin-top: .5rem;
+  }
+
+  .ontour .tickets .tickets-right .stadium-map {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, .6);
+  }
+
+  .ontour .tickets .payment-box {
+    margin-top: 1.5rem;
+    background: #111;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    color: #fff;
+    width: 100%;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* merch */
+  .merch-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 0 1.5rem;
+  }
+
+  .merch-card {
+    padding: 16px;
+    box-shadow: 0 10px 18px rgba(0, 0, 0, .4);
+    width: 100%;
+    max-width: 340px;
+  }
+
+  .merch-card .media {
+    width: 100%;
+    height: auto;
+    max-height: 360px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+  }
+
+  .merch-card .media img {
+    width: 100%;
+    height: auto;
+  }
+
+  .merch-card .price {
+    font-size: clamp(14px, 2.4vw, 24px);
+  }
 
   .actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     width: 100%;
-    display: grid;
-    gap: 8px;
-    margin-top: 4px;
+    align-items: center;
   }
 
   .btn {
-    width: 100%;
-    padding: 10px 14px;
-    font-family: "Lato";
-    letter-spacing: .6px;
-    font-size: 25px;
-
-    cursor: pointer;
-    border-radius: 0;
-  }
-
-  .btn-transparent {
-    background: transparent;
-    border: 1px solid white;
-    color: #eaeaea;
-  }
-
-  .btn-transparent:hover {
-    color: var(--accent);
-    background-color: white;
+    width: 90%;
+    font-size: clamp(9px, 1.4vw, 14px);
+    padding: 10px;
+    border-radius: 8px;
   }
 
   .btn-solid {
     background: var(--accent);
-    border: 1px black;
     color: white;
-  }
-
-  .btn-solid:hover {
-    background: black;
-    border: 1px solid var(--accent);
-  }
-
-
-
-
-  @media (max-width: 1024px) {
-    .merch-grid {
-      grid-template-columns: repeat(2, minmax(220px, 1fr));
-    }
-  }
-
-  @media (max-width: 640px) {
-    .merch-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .merch-card .media {
-      height: 190px;
-    }
-  }
-}
-
-
-
-
-
-
-
-/* ========== CONTACT SECTION ========== */
-.contact {
-  width: 100%;
-  background: #000;
-  color: var(--text-light);
-  font-family: 'Bebas Neue';
-
-  .contact-header {
-    width: 100%;
-    background: var(--accent);
-    padding: 12px 6vw;
-
-    h2 {
-      font-size: 70px;
-      letter-spacing: 2px;
-      text-align: left;
-    }
-  }
-
-  .contact-map {
-    width: 100%;
-    background: #000;
-
-    img {
-      width: 100%;
-      height: auto;
-      display: block;
-      opacity: 0.90;
-    }
-  }
-
-  .contact-content {
-    font-family: "Lato";
-
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 10rem;
-
-    background: black;
-    padding: 4rem 6vw;
-    color: white;
-
-    flex-wrap: wrap;
-    margin-top: 4rem;
-  }
-
-  .contact-form {
-
-    transform: scale(1.3);
-    transform-origin: top left;
-    margin-left: 2rem;
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-    }
-
-    button {
-      padding: 14px 40px;
-    }
-
-    label {
-      font-size: 0.95rem;
-      letter-spacing: 1px;
-    }
-
-    .input[type="password"] {
-      width: 100%;
-      background: transparent;
-      border: 1px solid white;
-      color: white;
-      padding: 10px;
-      font-family: "Lato";
-    }
-
-    .input[type="text"] {
-      font-size: 2px;
-
-      display: flex;
-      align-items: center;
-
-      gap: 8px;
-    }
-
-    .checkbox-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 2px;
-    }
-
-
-  }
-
-
-
-  .button-row {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-
-    gap: 2rem;
-    flex-wrap: wrap;
-
-    .sign-in {
-      font-family: "Lato";
-
-      background: var(--accent);
-      color: #fff;
-      text-decoration: none;
-
-      letter-spacing: 1px;
-      font-size: 16px;
-      padding: 15px 32px;
-      border: none;
-      cursor: pointer;
-    }
-
-    .sign-in:hover {
-      background: transparent;
-      border: 1px solid var(--accent);
-      color: var(--accent);
-    }
-
-    .sign-up {
-      font-family: "Lato";
-
-      background: white;
-      color: black;
-      text-decoration: none;
-
-      letter-spacing: 1px;
-      font-size: 16px;
-      padding: 15px 32px;
-      border: none;
-      cursor: pointer;
-    }
-
-    .sign-up:hover {
-      background: transparent;
-      color: white;
-      border: 1px solid white;
-    }
-
-    button {
-      width: auto;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-  }
-
-
-  .btn-tickets {
-    background: var(--accent);
-    font-family: "Lato";
-
-    color: #fff;
-    text-decoration: none;
-
-    letter-spacing: 1px;
-    font-size: 24px;
-    padding: 15px 32px;
     border: none;
-
-    cursor: pointer;
-    transition: all .2s ease;
   }
 
-  .btn-tickets:hover {
+  .btn-transparent {
     background: transparent;
+    color: var(--accent);
     border: 1px solid var(--accent);
   }
 
-
-
-  .social-login {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-
-    gap: 0.6rem;
-    margin-top: 1.2rem;
-    width: 100%;
-    max-width: 220px;
+  /* contact */
+  .contact {
+    padding: 3rem 0;
   }
 
-  .social-btn {
+  .contact .contact-header h2 {
+    font-size: clamp(20px, 4vw, 40px);
+    text-align: center;
+  }
+
+  .contact .contact-content {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .contact .contact-form {
+    transform: none;
+    margin: 0;
+    max-width: 520px;
+    width: 100%;
+  }
+
+  .contact .contact-form form {
+    gap: .9rem;
+  }
+
+  .contact .contact-info {
+    max-width: 520px;
     width: 100%;
     height: auto;
+    margin-top: 1.5rem;
+    text-align: center;
+  }
 
-    display: flex;
-    align-items: center;
+  .contact .contact-info p {
+    font-size: clamp(11px, 1.8vw, 18px);
+    line-height: 1.6;
+  }
+
+  .contact .button-row {
     justify-content: center;
-
-    gap: 0.4rem;
-    background: black;
-    border: 1px solid #333;
-    color: white;
-
-    font-family: "Lato";
-    font-size: 16px;
-    font-weight: 500;
-    white-space: nowrap;
-    padding: 0.4em 0.8em;
-    border-radius: 4px;
-    cursor: pointer;
-
-
-    text-transform: none;
-
-    img {
-      width: .8em;
-      height: .8em;
-      object-fit: contain;
-    }
-
+    gap: 1rem;
   }
 
-  .contact-info {
-    flex: 1;
-    max-width: 480px;
-    height: 600px;
-
-    border: 1px solid var(--accent);
-    padding: 2rem;
-
-    p {
-      margin-bottom: 1.5rem;
-      line-height: 1.6;
-      font-family: "Lato";
-      font-size: 28px;
-    }
-
-  }
-
-  .contact-logos {
-    display: flex;
-    gap: 2rem;
+  .contact .social-login {
     align-items: center;
-    justify-content: flex-start;
-
-    margin-top: 3rem;
-    margin-left: 2rem;
-
-    img {
-      height: 100px;
-      width: auto;
-      opacity: 0.9;
-      transition: opacity .2s;
-    }
-
-    img:hover {
-      opacity: 1;
-    }
-
+    width: 100%;
+    max-width: 240px;
+    margin-top: 1rem;
   }
 
+  .contact .contact-logos {
+    justify-content: center;
+    margin-left: 0;
+    gap: 1rem;
+  }
 
-  @media (max-width: 900px) {
-    .contact-content {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
+  .contact .contact-map {
+    max-width: 680px;
+    margin: 1.5rem auto;
+    border-radius: 12px;
+    overflow: hidden;
+  }
 
-    .contact-info {
-      margin-top: 2rem;
-    }
+  .contact .contact-map img {
+    width: 100%;
+    height: auto;
+  }
 
-    .contact-logos {
-      justify-content: center;
-    }
+  /* footer */
+  .footer-content .footer-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .footer-content .footer-subscribe {
+    padding: 3rem 0 1.5rem;
+  }
+
+  .footer-content .subscribe-form {
+    max-width: 520px;
+    width: 100%;
+  }
+
+  .footer-content .subscribe-agree {
+    margin: .8rem auto 1.2rem;
+    max-width: 520px;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .footer-content .privacy-note {
+    max-width: 520px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .footer-content .privacy-note a {
+    margin-right: 0;
+  }
+
+  .footer-content .footer-main {
+    padding: 2rem 0 2.5rem;
+  }
+
+  .footer-content .footer-div {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .footer-content .footer-socials {
+    transform: scale(0.85);
+    gap: 0.4rem;
+  }
+
+  .footer-content .footer-socials .brand-mark {
+    width: 120px;
+  }
+
+  .footer-content .footer-socials .socials img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .footer-content .brand-mark {
+    margin: 0 auto;
+  }
+
+  .footer-content .footer-columns {
+    margin-left: 0;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+  }
+
+  .footer-content .footer-columns h4 {
+    text-align: center;
+  }
+
+  .footer-content .footer-ticketmaster {
+    justify-content: center;
+    margin-top: .5rem;
+  }
+
+  .footer-content .footer-btn {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -2.6rem;
   }
 }
 
-
-/*================ FOOTER ================*/
-
-
-.footer-content {
-  background: #464646;
-  color: white;
-
-
-  .footer-container {
-    width: 100%;
-    max-width: 1700px;
-    margin: 0 auto;
-    padding-left: 3rem;
-    padding-right: 3rem;
-
-    box-sizing: border-box;
+@media (max-width: 830px) {
+  .hero {
+    overflow-x: hidden;
   }
 
-  .footer-subscribe {
-    padding: 6rem 0 2rem;
-
-    h3 {
-      font-family: "Lato";
-      font-size: 30px;
-      letter-spacing: 2px;
-      margin-bottom: 1.2rem;
-
-      text-align: center;
-    }
-
+  .hero .hero-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: grid !important;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    padding: 12px 16px;
+    background: transparent;
+    z-index: 4;
   }
 
-  .subscribe-form {
-    display: flex;
-    gap: 0.8rem;
-    align-items: stretch;
-    justify-content: center;
-
-    margin-bottom: 1rem;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-
-    input[type="email"] {
-      flex: 1;
-      background: white;
-      color: black;
-      border: none;
-      padding: 8px 10px;
-      font-size: 14px;
-      outline: none;
-    }
-  }
-
-  .btn-subscribe {
-    font-family: "Lato";
-    font-size: 16px;
-
-    background: var(--accent);
-
-    color: white;
-    border: none;
-    padding: 8px 14px;
-
-    cursor: pointer;
-    transition: all .2s ease;
-  }
-
-
-
-  .subscribe-agree {
-    display: flex;
-
-    font-family: "Lato";
-    font-size: 8px;
-
-    color: #cfcfcf;
-    gap: .6rem;
-
-    margin: .6rem 0 1.2rem;
-    margin-left: 28.5rem;
-  }
-
-  .privacy-note {
-    font-family: "Lato";
-    font-size: 8px;
-
-    color: #cfcfcf;
-    text-align: center;
-
-    a {
-      color: white;
-      text-decoration: underline;
-      margin-right: 21rem;
-    }
-  }
-
-
-  .footer-main {
-    padding: 2.5rem 0 3.5rem;
-  }
-
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 220px 1fr auto;
-    gap: 3rem;
-    align-items: start;
-  }
-
-  .footer-socials {
-    display: flex;
-
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    text-align: center;
-    gap: 1rem;
-
-    .socials {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 13px;
-
-      list-style: none;
-      padding: 0;
-      margin: 0;
-
-      img {
-        width: 28px;
-        height: 28px;
-
-        object-fit: contain;
-        filter: none;
-        opacity: 1;
-      }
-
-      img:hover {
-        transform: scale(1.1);
-        opacity: 0.8;
-      }
-    }
-  }
-
-
-  .brand-mark {
-    width: 200px;
-    height: auto;
+  .hero .hero-nav .hero-brand img {
+    height: 40px;
     display: block;
   }
 
-
-  .footer-columns {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(160px, 1fr));
-    gap: 2.5rem;
-    margin-left: 30rem;
-
-    h4 {
-      font-family: "Lato";
-      font-size: 14px;
-      letter-spacing: 1px;
-
-      margin-bottom: .8rem;
-      color: white;
-
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    li {
-      margin: .4rem 0;
-      font-family: "Lato";
-      font-size: .7rem;
-    }
-
-    a {
-      color: #dcdcdc;
-      text-decoration: none;
-      font-family: "Lato";
-      font-size: 10px;
-    }
-
-    a:hover {
-      color: white;
-    }
-
+  .hero .hero-nav .hero-menu,
+  .hero .hero-nav .hero-icons {
+    display: none !important;
   }
 
+  .hero .hamburger {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    left: auto;
+    transform: none;
+    display: inline-flex !important;
+    margin: 0;
+    z-index: 5;
+  }
 
-  .footer-ticketmaster {
-    display: flex;
+  .hero .hero-content {
+    margin-top: 7rem;
+    gap: 12px;
+  }
+
+  .hero .hero-content h1 {
+    font-size: clamp(42px, 7vw, 70px);
+    line-height: 1;
+  }
+
+  .hero .hero-content .cta {
+    margin-top: 3rem;
+  }
+
+  .hero .hero-background {
+    background-image: url("img/FotoHero.jpg");
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+  }
+
+  .hero #nav-toggle:not(:checked)~.mobile-menu {
+    transform: translateY(-100%);
+    pointer-events: none;
+  }
+}
+
+@media (min-width: 831px) {
+  .hero {
+    overflow-x: hidden;
+  }
+
+  .hero .mobile-menu {
+    display: none !important;
+  }
+
+  .hero .hamburger {
+    display: none !important;
+    position: static;
+  }
+
+  .hero .hero-background {
+    background-image: url("img/FotoHero.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .albums .albums-disc {
+    margin: 0;
+  }
+
+  .albums .latest-album {
+    padding: 50px 15px;
+  }
+
+  .albums .latest-album-content h2 {
+    font-size: clamp(18px, 3vw, 30px);
+    margin-bottom: 30px;
+  }
+
+  .albums .latest-album-container {
+    max-width: 90%;
+    gap: 20px;
+  }
+
+  .albums .latest-album-cover-img {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .albums .tracklist-container {
+    gap: 10px;
+  }
+
+  .albums .tracklist-container iframe {
+    height: 80px;
+    max-width: 280px;
+  }
+
+  .Cancion-spotify {
+    flex-direction: column;
+    gap: 16px;
     align-items: center;
-    justify-content: flex-end;
   }
 
-  .ticketmaster-logo {
-    max-width: 400px;
-    height: auto;
-    filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.3));
+  .latest-album-reproducer {
+    transform: none;
+    width: 100%;
+    min-width: 0;
+    height: 160px;
+    padding-top: 0;
   }
 
+  .latest-album-reproducer iframe {
+    width: 100%;
+    height: 100%;
+  }
+}
 
-  .footer-bottom {
-    background: #464646;
-    color: var(--text-light);
-    font-size: 0.4rem;
+@media (max-width: 600px) {
 
-    padding: 1.5rem 0 0.5rem 0;
-
-    position: relative;
-
-    hr {
-      border: none;
-      border-top: 2px solid white;
-      opacity: 0.8;
-      margin: 0 2vw 1rem 2vw;
-    }
+  /* footer */
+  .footer-content .subscribe-form {
+    flex-direction: column;
+    max-width: 100%;
   }
 
-  .footer-bottom-content {
-    font-family: "Lato";
+  .footer-content .btn-subscribe {
+    width: 100%;
+  }
+
+  .footer-content .footer-columns {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .footer-content .footer-bottom-content p {
+    line-height: 1.8;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact .contact-content {
+    max-width: 92%;
+    padding: 1rem;
+  }
+
+  .contact .contact-header h2 {
+    font-size: clamp(19px, 3.2vw, 32px);
+  }
+
+  .contact .contact-info p {
+    font-size: clamp(10px, 1.6vw, 16px);
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 420px) {
+  .footer-content .footer-subscribe h3 {
+    font-size: clamp(13px, 2.2vw, 22px);
+    letter-spacing: 1px;
+  }
+
+  .footer-content .subscribe-agree,
+  .footer-content .privacy-note {
+    font-size: clamp(6px, 1vw, 10px);
+  }
+
+  .footer-content .ticketmaster-logo {
+    max-width: 260px;
+  }
+}
+
+
+
+
+.footer-content .subscribe-agree,
+.footer-content .privacy-note {
+  font-size: clamp(6px, 1vw, 10px);
+}
+
+.footer-content .ticketmaster-logo {
+  max-width: 260px;
+}
+
+
+.subscribe-form {
+  display: flex;
+  gap: 0.8rem;
+  align-items: stretch;
+  justify-content: center;
+  margin-bottom: 1rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+
+  input[type="email"] {
+    flex: 1;
+    background: white;
+    color: black;
+    border: none;
+    padding: 8px 10px;
+    font-size: 14px;
+    outline: none;
+  }
+}
+
+.btn-subscribe {
+  font-family: "Lato";
+  font-size: 16px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.subscribe-agree {
+  display: flex;
+  font-family: "Lato";
+  font-size: 8px;
+  color: #cfcfcf;
+  gap: .6rem;
+  margin: .6rem 0 1.2rem;
+  margin-left: 28.5rem;
+}
+
+.privacy-note {
+  font-family: "Lato";
+  font-size: 8px;
+  color: #cfcfcf;
+  text-align: center;
+
+  a {
+    color: white;
+    text-decoration: underline;
+    margin-right: 21rem;
+  }
+}
+
+.footer-main {
+  padding: 2.5rem 0 3.5rem;
+}
+
+.footer-div {
+  display: grid;
+  grid-template-columns: 220px 1fr auto;
+  gap: 3rem;
+  align-items: start;
+}
+
+.footer-socials {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: center;
+  gap: 1rem;
+
+  .socials {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
+    gap: 13px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 
-    flex-wrap: wrap;
-    text-align: center;
-    gap: 0.3rem;
-
-    p {
-      margin: 0;
-      line-height: 1.6;
+    img {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+      filter: none;
+      opacity: 1;
     }
+
+    img:hover {
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
+  }
+}
+
+.brand-mark {
+  width: 200px;
+  height: auto;
+  display: block;
+}
+
+.footer-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(160px, 1fr));
+  gap: 2.5rem;
+  margin-left: 30rem;
+
+  h4 {
+    font-family: "Lato";
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-bottom: .8rem;
+    color: white;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    margin: .4rem 0;
+    font-family: "Lato";
+    font-size: .7rem;
+  }
+
+  a {
+    color: #dcdcdc;
+    text-decoration: none;
+    font-family: "Lato";
+    font-size: 10px;
+  }
+
+  a:hover {
+    color: white;
+  }
+}
+
+.footer-ticketmaster {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.ticketmaster-logo {
+  max-width: 400px;
+  height: auto;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.3));
+}
+
+.footer-bottom {
+  background: #464646;
+  color: var(--text-light);
+  font-size: 0.4rem;
+  padding: 1.5rem 0 0.5rem 0;
+  position: relative;
+
+  hr {
+    border: none;
+    border-top: 2px solid white;
+    opacity: 0.8;
+    margin: 0 2vw 1rem 2vw;
+  }
+}
+
+.footer-bottom-content {
+  font-family: "Lato";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-wrap: wrap;
+  text-align: center;
+  gap: 0.3rem;
+
+  p {
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  a {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  a:hover {
+    color: var(--accent);
+  }
+}
+
+.footer-btn {
+  position: absolute;
+  right: 2vw;
+  top: -2.8rem;
+  padding: 8px;
+}
+
+.go-to-hero img {
+  width: 40px;
+  height: 40px;
+}
+
+
+
+@media (max-width: 900px) {
+
+
+  .footer-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .footer-subscribe {
+    padding: 3rem 0 1.5rem;
+  }
+
+  .subscribe-form {
+    max-width: 520px;
+    width: 100%;
+  }
+
+  .subscribe-agree {
+    margin: .8rem auto 1.2rem;
+    max-width: 520px;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .privacy-note {
+    max-width: 520px;
+    margin: 0 auto;
+    text-align: center;
 
     a {
-      color: var(--text-light);
-      text-decoration: none;
-      transition: color 0.2s ease;
+      margin-right: 0;
     }
-
-    a:hover {
-      color: var(--accent);
-    }
-
   }
 
-
-  .footer-btn {
-
-    position: absolute;
-    right: 2vw;
-    top: -2.8rem;
-    padding: 8px;
+  .footer-main {
+    padding: 2rem 0 2.5rem;
   }
 
-  .go-to-hero img {
-    width: 40px;
-    height: 40px;
+  .footer-div {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    justify-items: center;
+    text-align: center;
   }
 
+  .footer-socials {
+    transform: scale(0.85);
+    gap: 0.4rem;
+  }
 
+  .footer-socials .brand-mark {
+    width: 120px;
+  }
 
+  .footer-socials .socials img {
+    width: 20px;
+    height: 20px;
+  }
 
-  @media (max-width: 1000px) {
-    .footer-grid {
-      grid-template-columns: 1fr;
-      gap: 2rem;
+  .brand-mark {
+    margin: 0 auto;
+  }
+
+  .footer-columns {
+    margin-left: 0;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+
+    h4 {
       text-align: center;
     }
-
-    .footer-columns {
-      grid-template-columns: 1fr 1fr;
-      justify-items: center;
-    }
-
-    .footer-right {
-      justify-self: center;
-    }
-
-    .brand-mark {
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .socials {
-      justify-content: center;
-    }
   }
 
-  @media (max-width: 600px) {
-    .subscribe-form {
-      flex-direction: column;
-    }
+  .footer-ticketmaster {
+    justify-content: center;
+    margin-top: .5rem;
+  }
 
-    .btn-subscribe {
-      width: 100%;
-    }
+  .footer-btn {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -2.6rem;
+  }
+}
 
-    .footer-columns {
-      grid-template-columns: 1fr;
+@media (max-width: 600px) {
+
+  .subscribe-form {
+    flex-direction: column;
+    max-width: 100%;
+  }
+
+  .btn-subscribe {
+    width: 100%;
+  }
+
+  .footer-columns {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .footer-bottom-content {
+    p {
+      line-height: 1.8;
     }
+  }
+}
+
+@media (max-width: 420px) {
+  .footer-subscribe h3 {
+    font-size: 22px;
+    letter-spacing: 1px;
+  }
+
+  .subscribe-agree,
+  .privacy-note {
+    font-size: 10px;
+  }
+
+  .ticketmaster-logo {
+    max-width: 260px;
   }
 }
