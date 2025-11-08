@@ -3,9 +3,9 @@
 
 :root {
   --main-color: black;
-  --text-light: white;
-  --accent: #B93C2D;
-  --muted: #bbbbbb;
+  --main-white: white;
+  --main-red: #B93C2D;
+  --main-gray: #bbbbbb;
 }
 
 * {
@@ -19,8 +19,9 @@ body {
   width: 100%;
   font-family: 'Bebas Neue';
   height: 100%;
+
   background: var(--main-color);
-  color: var(--text-light);
+  color: var(--main-white);
   letter-spacing: .5px;
 }
 
@@ -31,9 +32,11 @@ body {
   overflow: hidden;
 
   .hero-nav {
+    /* border: 1px solid red; */
     position: relative;
     z-index: 3;
     display: flex;
+
     padding: 20px 16px;
     align-items: center;
 
@@ -47,10 +50,13 @@ body {
     }
 
     .hero-menu {
+      /* border: 1px solid blue; */
+
       flex: 1;
       font-family: "Lato";
       list-style: none;
       display: flex;
+
       justify-content: center;
       gap: 3rem;
 
@@ -59,16 +65,18 @@ body {
         font-size: 16px;
         letter-spacing: 5px;
         text-decoration: none;
-        color: var(--muted);
+        color: var(--main-gray);
 
         &:hover,
         &:focus {
-          color: var(--text-light);
+          color: var(--main-white);
         }
       }
     }
 
     .hero-icons {
+      /* border: 1px solid red; */
+
       flex: 0 0 160px;
       display: flex;
       justify-content: flex-end;
@@ -80,42 +88,76 @@ body {
         cursor: pointer;
       }
     }
+
+    .burger {
+      display: none;
+      width: 30px;
+      height: 20px;
+
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+
+      span {
+        border: 1px solid white;
+        width: 100%;
+        height: 1px;
+
+        display: inline-block;
+      }
+    }
   }
 
   .hero-content {
     position: relative;
     z-index: 2;
+
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+
     padding: 6vh 4vw 10vh;
     gap: 28px;
 
-    p {
+    h1 {
       font-size: 200px;
       line-height: .9;
       letter-spacing: 2px;
     }
 
     .cta {
-      background: var(--accent);
+      /* border: 1px solid blue; */
+
+      background: var(--main-red);
       color: #fff;
+
       font-family: "Lato";
       letter-spacing: 1px;
       font-size: 16px;
       text-decoration: none;
       padding: 15px 32px;
+
       border: none;
       cursor: pointer;
-      margin-bottom: 10rem;
+      margin-top: 10rem;
 
       &:hover {
         background: transparent;
-        border: 1px solid var(--accent);
+        border: 1px solid var(--main-red);
       }
+    }
+
+    p {
+      font-family: "Lato";
+      font-size: 30px;
+      color: var(--main-gray);
+      letter-spacing: 10px;
+      text-transform: uppercase;
+      margin-top: 10rem;
+      margin-bottom: 10rem;
     }
   }
 
@@ -131,6 +173,8 @@ body {
 
 .grammy {
   display: flex;
+  /* border: 1px solid red; */
+
   flex-wrap: wrap;
   width: 100%;
   padding: 40px;
@@ -138,6 +182,7 @@ body {
   .billboard {
     flex: 1;
     display: flex;
+
     align-items: center;
     justify-content: center;
     padding: 40px;
@@ -158,6 +203,7 @@ body {
     align-items: center;
     justify-content: center;
     padding: 40px;
+
     box-sizing: border-box;
     flex-direction: column;
     text-align: center;
@@ -166,32 +212,38 @@ body {
       font-size: 70px;
       margin-bottom: 20px;
       letter-spacing: 2px;
+
     }
 
     p {
       font-family: "Lato";
       font-size: 24px;
       line-height: 1.4;
+
       max-width: 500px;
       margin: 0 auto 30px;
       color: #e5e5e5;
     }
 
     strong {
-      color: var(--accent);
+      color: var(--main-red);
     }
 
     .video-grammy {
+      /* border: 1px solid yellow; */
+
       width: 100%;
-      max-width: 700px;
-      aspect-ratio: 16/9;
+      height: 400px;
       overflow: hidden;
       border-radius: 8px;
       border: 1px solid #222;
 
+      margin-right: 5rem;
+
       iframe {
         width: 100%;
         height: 100%;
+
         display: block;
       }
     }
@@ -200,13 +252,13 @@ body {
 
 .bio {
   background: var(--main-color);
-  color: var(--text-light);
+  color: var(--main-white);
   padding: 0 0 40px 0;
-  overflow-x: hidden;
+
 
   .bio-header {
     width: 100%;
-    background: var(--accent);
+    background: var(--main-red);
     padding: 10px 6vw;
 
     h2 {
@@ -218,6 +270,8 @@ body {
 
   .bio-content {
     display: flex;
+    /* border: 1px solid red; */
+
     align-items: center;
     gap: 0;
     padding: 18px 4vw 0 6vw;
@@ -233,6 +287,7 @@ body {
         font-weight: 400;
         font-size: 30px;
         line-height: 44px;
+
         letter-spacing: 0;
         color: #e4e4e4;
         margin: 0;
@@ -240,29 +295,36 @@ body {
       }
 
       strong {
-        color: var(--accent);
+        color: var(--main-red);
       }
     }
 
     .bio-img-about {
       flex: 1;
+      /* border: 1px solid red; */
+
       position: relative;
       display: flex;
+
       align-items: center;
 
       .about-img {
         width: 100%;
         max-width: 640px;
         height: auto;
+
         margin-top: 3rem;
-        margin-left: 10rem;
+        margin-left: 3rem;
       }
 
       .red-band {
+        /* border: 1px solid white; */
+
         position: absolute;
         right: -90px;
         height: 666px;
         width: 375px;
+
         object-fit: contain;
         margin-top: 3rem;
       }
@@ -271,8 +333,11 @@ body {
 
   .members {
     display: flex;
+    /* border: 1px solid blue; */
+
     justify-content: center;
     gap: 60px;
+
     margin-top: 100px;
     flex-wrap: wrap;
     padding: 0 20px;
@@ -281,6 +346,7 @@ body {
       background: #111;
       border-radius: 8px;
       width: 240px;
+
       text-align: center;
       box-shadow: 0 0 12px rgba(0, 0, 0, .4);
 
@@ -292,6 +358,7 @@ body {
         width: 100%;
         height: 260px;
         object-fit: cover;
+
         border-top-left-radius: 8px;
         border-top-right-radius: 8px;
         display: block;
@@ -303,12 +370,14 @@ body {
         h3 {
           font-size: 18px;
           letter-spacing: 1px;
+
           margin-bottom: 6px;
         }
 
         .age {
           color: #bbb;
           margin-bottom: 10px;
+
           font-size: 15px;
         }
 
@@ -317,6 +386,7 @@ body {
           justify-content: center;
           align-items: center;
           gap: 1rem;
+
           margin-top: 1rem;
 
           img {
@@ -330,64 +400,79 @@ body {
   }
 
   .bio-about-info {
-    max-width: 1800px;
-    margin-left: 2.5vw;
+    max-width: 100%;
+    /* border: 1px solid red; */
+
     text-align: center;
-    margin-top: 3rem;
-    margin-left: 10rem;
+    margin: 3rem 7rem 3rem 7rem;
 
     p {
       font-family: "Lato";
       font-weight: 400;
       font-size: 30px;
+
       line-height: 44px;
       color: #e4e4e4;
       text-align: left;
     }
 
     strong {
-      color: var(--accent);
+      color: var(--main-red);
     }
   }
 }
 
 .timeline {
+  /* border: 1px solid yellow; */
+
   width: 90%;
   margin: 5rem 6rem 6rem;
+
   position: relative;
   display: flex;
   flex-wrap: wrap;
   gap: 60px;
+
   align-items: center;
 
   &::before {
     content: "";
     position: absolute;
+
     top: 0;
     bottom: 0;
     left: 50%;
+
     width: 3px;
-    background: var(--accent);
+    background: var(--main-red);
   }
 
-  .timeline-img,
+  .timeline-img {
+    flex: 0 0 calc((100% - 123px) / 2);
+    position: relative;
+  }
+
   .timeline-content {
     flex: 0 0 calc((100% - 123px) / 2);
     position: relative;
   }
 
   .timeline-middle {
+    /* border: 1px solid blue; */
+
     flex: 0 0 3px;
     position: relative;
     height: 100%;
   }
 
   .timeline-circle {
+    /* border: 1px solid red; */
+
     position: absolute;
     top: 0;
     width: 18px;
     height: 18px;
-    background: var(--accent);
+    background: var(--main-red);
     border-radius: 50%;
     box-shadow: 0 0 0 2px #222;
   }
@@ -402,18 +487,23 @@ body {
       height: auto;
       border-radius: 10px;
       border: 1px solid #464646;
+
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
       display: block;
     }
   }
 
   .timeline-content {
+    /* border: 1px solid green; */
+
     font-family: "Lato";
+
     background: #000;
     border: 1px solid #222;
     border-radius: 8px;
     color: #fff;
     padding: 2.5rem 3rem;
+
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
 
     h3 {
@@ -426,12 +516,13 @@ body {
     p {
       margin-top: 1rem;
       letter-spacing: 1px;
+
       line-height: 1.7;
       font-size: 22px;
     }
 
     strong {
-      color: var(--accent);
+      color: var(--main-red);
     }
 
     &.alt {
@@ -452,7 +543,7 @@ body {
         left: 50%;
         width: 18px;
         height: 18px;
-        background: var(--accent);
+        background: var(--main-red);
         border-radius: 50%;
         box-shadow: 0 0 0 2px #222;
       }
@@ -463,12 +554,12 @@ body {
 /* ================= ALBUMS ================= */
 .albums {
   background: var(--main-color);
-  color: var(--text-light);
+  color: var(--main-white);
   padding: 0 0 60px 0;
 
   .albums-header {
     width: 100%;
-    background: var(--accent);
+    background: var(--main-red);
     padding: 12px 6vw;
     text-align: center;
 
@@ -481,9 +572,12 @@ body {
 
   .albums-disc {
     display: flex;
+    /* border: 1px solid blue; */
+
     flex-wrap: wrap;
     justify-content: center;
     gap: 28px;
+
     padding: 40px 28px;
     margin-left: 7rem;
     margin-right: 7rem;
@@ -495,6 +589,7 @@ body {
       border-radius: 12px;
       border: none;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+
       flex-basis: 350px;
       flex-grow: 1;
     }
@@ -502,20 +597,27 @@ body {
 
   .latest-album {
     position: relative;
+    /* border: 1px solid red; */
+
     background-color: var(--main-color);
-    color: var(--text-light);
+    color: var(--main-white);
+
     padding: 80px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+
     min-height: 100vh;
     justify-content: center;
     overflow: hidden;
   }
 
   .latest-album-content {
+    /* border: 2px solid yellow; */
+
     position: relative;
     z-index: 2;
+
     text-align: center;
     max-width: 800px;
     width: 100%;
@@ -528,7 +630,7 @@ body {
     }
 
     span {
-      color: var(--accent);
+      color: var(--main-red);
     }
   }
 
@@ -538,19 +640,25 @@ body {
     justify-content: center;
     gap: 20px;
     max-width: 500px;
+
     margin: 0 auto;
     padding: 8px 12px;
   }
 
   .latest-album-container {
+    /* border: 1px solid blue; */
+
     background: #282828;
     border: 1px solid gray;
     border-radius: 12px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
     padding: 16px;
+
+
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -558,6 +666,8 @@ body {
   }
 
   .latest-album-cover-img {
+    /* border: 1px solid green; */
+
     width: 100%;
     max-width: 230px;
     height: auto;
@@ -569,10 +679,12 @@ body {
 
   .latest-album-reproducer {
     display: flex;
+
     align-items: center;
     justify-content: center;
     height: 100%;
     flex: 2;
+
     min-width: 380px;
     padding-bottom: 2rem;
 
@@ -589,6 +701,7 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     gap: 8px;
+
     width: 100%;
     margin-top: 8px;
 
@@ -606,35 +719,40 @@ body {
 /* ================= ON TOUR ================= */
 .ontour {
   background: var(--main-color);
-  color: var(--text-light);
+  color: var(--main-white);
   padding: 2rem 0 3rem 0;
   font-family: 'Bebas Neue';
+
   margin-bottom: 0;
   overflow-x: hidden;
 
   .ontour-header {
     width: 100%;
-    background: var(--accent);
+    background: var(--main-red);
     padding: 12px 6vw;
+
     text-align: center;
 
     h2 {
       margin: 0;
+
       font-size: 70px;
       letter-spacing: 2px;
     }
   }
 
   .ontour-video {
+    /* border: 1px solid red; */
+
     max-width: 960px;
+
     margin: 1rem auto 0;
     padding: 1rem;
     padding-top: 6rem;
 
     iframe {
       width: 100%;
-      aspect-ratio: 16/9;
-      height: auto;
+      height: 500px;
       display: block;
       background: black;
       border: 0;
@@ -647,33 +765,41 @@ body {
     text-align: center;
     margin: 30px 0;
     padding-top: 3rem;
+
   }
 
   .btn-tickets {
-    background: var(--accent);
+    /* border: 1px solid green; */
+
+    background: var(--main-red);
     color: #fff;
     text-decoration: none;
     font-family: "Lato";
     letter-spacing: 1px;
+
     font-size: 16px;
     padding: 15px 32px;
     border: none;
     cursor: pointer;
+
     transition: all .2s ease;
 
     &:hover {
       background: transparent;
-      border: 1px solid var(--accent);
+      border: 1px solid var(--main-red);
     }
   }
 
   .tour-content {
     position: relative;
     display: flex;
+    /* border: 1px solid red; */
+
     justify-content: center;
     align-items: flex-start;
     max-width: 1600px;
     margin: 0 auto;
+
     padding: 40px 20px;
     margin-top: 10rem;
 
@@ -683,17 +809,21 @@ body {
       top: 0;
       bottom: 0;
       width: 2px;
-      background-color: var(--accent);
+      background-color: var(--main-red);
     }
 
-    .tour-left {
+    .tour-phototour {
       width: 50%;
       display: flex;
+      /* border: 1px solid white; */
+
       flex-direction: column;
       align-items: center;
       position: relative;
+
       justify-content: flex-start;
       gap: 20px;
+
       padding-right: 60px;
       padding-top: 10rem;
 
@@ -707,24 +837,29 @@ body {
       .tour-logo {
         width: 100px;
         height: 100px;
+
         margin-top: 10px;
       }
     }
 
-    .tour-right {
+    .tour-dates {
       width: 50%;
       display: flex;
+
       flex-direction: column;
       align-items: center;
       position: relative;
       overflow: visible;
       color: #fff;
+
       font-family: "Lato";
       font-size: 10px;
     }
 
     .tour-img-background {
       position: absolute;
+      /* border: 1px solid blue; */
+
       top: -33%;
       right: -35%;
       opacity: .2;
@@ -735,6 +870,7 @@ body {
         height: auto;
         object-fit: contain;
         margin-bottom: 3.5rem;
+
       }
     }
 
@@ -742,6 +878,7 @@ body {
       position: relative;
       z-index: 1;
       text-align: center;
+
       text-shadow: 2px 2px 6px rgba(0, 0, 0, 1);
       margin-left: 250px;
 
@@ -750,6 +887,7 @@ body {
         color: #fff;
         margin-bottom: 12px;
         letter-spacing: 1px;
+
 
         a {
           text-decoration: none;
@@ -761,6 +899,7 @@ body {
         list-style: none;
         padding: 0;
         margin: 0;
+
         line-height: 1.3;
         font-size: clamp(18px, 0.5vw + 1rem, 24px);
       }
@@ -769,18 +908,21 @@ body {
 
   .tickets {
     background: #464646;
-    color: var(--text-light);
+    color: var(--main-white);
     padding: 2rem 0 3rem 0;
-    font-family: 'Bebas Neue';
+
+    font-family: "Lato";
     margin-bottom: 0;
     margin-top: 7rem;
+
     overflow-x: hidden;
 
     .tickets-header {
       width: 100%;
-      background: var(--accent);
+      background: var(--main-red);
       padding: 12px 6vw;
       text-align: center;
+
       margin-bottom: 3rem;
       margin-top: -2rem;
 
@@ -788,47 +930,58 @@ body {
         margin: 0;
         font-size: 70px;
         letter-spacing: 2px;
+
       }
     }
 
     .tickets-steps {
       display: flex;
+      /* border: 1px solid red; */
+
       align-items: flex-start;
       justify-content: center;
+
       flex-wrap: wrap;
       gap: 8rem;
     }
 
-    .tickets-left {
+    .tickets-carts {
       flex: 1;
       margin-left: 8rem;
 
       h3 {
         font-size: 26px;
-        font-family: 'Bebas Neue';
+        font-family: "Lato";
         letter-spacing: 1px;
         margin-bottom: 20px;
+
         color: white;
         text-align: left;
       }
     }
 
-    .ticket-dates {
+    .ticket-datestour {
       list-style: none;
       display: flex;
+      /* border: 1px solid purple; */
+
       flex-direction: column;
       gap: 16px;
+
       padding: 0;
       margin: 0;
-      font-family: 'Bebas Neue';
+
+      font-family: "Lato";
 
       li {
         font-size: 22px;
         display: flex;
+
         align-items: center;
         justify-content: space-between;
         background: #2f2f2f;
         padding: 10px 14px;
+
         border-radius: 6px;
         color: #eaeaea;
         letter-spacing: 1px;
@@ -847,25 +1000,27 @@ body {
 
         .btn-tickets {
           font-size: 16px;
-          background: var(--accent);
+          background: var(--main-red);
           color: #fff;
           text-decoration: none;
-          font-family: 'Bebas Neue';
+
+          font-family: "Lato";
           letter-spacing: 1px;
           padding: 15px 32px;
           border: none;
           cursor: pointer;
-          transition: all .2s ease;
+
+
 
           &:hover {
             background: transparent;
-            border: 1px solid var(--accent);
+            border: 1px solid var(--main-red);
           }
         }
       }
     }
 
-    .tickets-right {
+    .tickets-area {
       flex: 1;
       text-align: center;
 
@@ -873,11 +1028,14 @@ body {
         font-size: 22px;
         letter-spacing: 1px;
         margin-bottom: 20px;
+
         color: white;
-        font-family: 'Bebas Neue';
+        font-family: "Lato";
       }
 
       .stadium-map {
+        /* border: 1px solid red; */
+
         width: 100%;
         max-width: 600px;
         border-radius: 10px;
@@ -889,8 +1047,9 @@ body {
         justify-content: center;
         align-items: center;
         gap: 1.5rem;
+
         margin-top: 2rem;
-        font-family: 'Bebas Neue';
+        font-family: "Lato";
 
         .step {
           color: #fff;
@@ -899,10 +1058,11 @@ body {
         }
 
         .total {
-          background: var(--accent);
+          background: var(--main-red);
           color: white;
           font-size: 1.6rem;
           padding: 10px 24px;
+
           border-radius: 4px;
           letter-spacing: 1px;
         }
@@ -911,22 +1071,25 @@ body {
   }
 
   .merch {
-    color: var(--text-light);
+    color: var(--main-white);
     padding: 2rem 0 3rem 0;
     font-family: 'Bebas Neue';
     margin: 0;
+
     overflow-x: hidden;
 
     .merch-header {
       width: 100%;
-      background: var(--accent);
+      background: var(--main-red);
       padding: 12px 6vw;
       text-align: center;
+
       margin-bottom: 3rem;
       margin-top: -2rem;
 
       h2 {
         margin: 0;
+
         font-size: 70px;
         letter-spacing: 2px;
         text-align: center;
@@ -934,9 +1097,12 @@ body {
     }
 
     .merch-container {
-      width: min(2000px, 90vw);
-      margin: 32px auto 80px;
+      width: 100%;
+      /* border: 1px solid yellow; */
+
+      margin: 20px auto 40px;
       display: flex;
+
       flex-wrap: wrap;
       justify-content: center;
       gap: 28px 32px;
@@ -944,19 +1110,24 @@ body {
 
     .merch-card {
       background: #2f2f2f;
+      /* border: 1px solid white; */
+
       border-radius: 12px;
       padding: 20px 10px 20px;
-      box-shadow: 0 60px 18px rgba(0, 0, 0, .35);
+
+      box-shadow: 0 40px 18px rgba(0, 0, 0, .35);
       display: flex;
+
       flex-direction: column;
       align-items: center;
-      gap: 10px;
+      gap: 1px;
 
       .media {
         width: auto;
-        height: 540px;
+        height: 400px;
         border-radius: 8px;
         background: #3a3a3a;
+
         display: flex;
         justify-content: center;
         align-items: center;
@@ -979,6 +1150,7 @@ body {
 
       .actions {
         width: 100%;
+
         display: flex;
         flex-direction: column;
         gap: 8px;
@@ -989,6 +1161,7 @@ body {
           padding: 10px 14px;
           font-family: "Lato";
           letter-spacing: .6px;
+
           font-size: clamp(14px, 1vw + 0.3rem, 25px);
           cursor: pointer;
           border-radius: 0;
@@ -1000,19 +1173,19 @@ body {
           color: #eaeaea;
 
           &:hover {
-            color: var(--accent);
+            color: var(--main-red);
             background-color: white;
           }
         }
 
         .btn-solid {
-          background: var(--accent);
+          background: var(--main-red);
           border: 1px black;
           color: white;
 
           &:hover {
             background: black;
-            border: 1px solid var(--accent);
+            border: 1px solid var(--main-red);
           }
         }
       }
@@ -1020,16 +1193,16 @@ body {
   }
 }
 
-/* ========== CONTACT SECTION ========== */
+/* ========== CONTACT ========== */
 .contact {
   width: 100%;
   background: #000;
-  color: var(--text-light);
+  color: var(--main-white);
   font-family: 'Bebas Neue';
 
   .contact-header {
     width: 100%;
-    background: var(--accent);
+    background: var(--main-red);
     padding: 12px 6vw;
 
     h2 {
@@ -1041,6 +1214,8 @@ body {
 
   .contact-map {
     width: 100%;
+    /* border: 1px solid blue; */
+
     background: #000;
 
     img {
@@ -1054,9 +1229,11 @@ body {
   .contact-content {
     font-family: "Lato";
     display: flex;
+
     justify-content: center;
     align-items: flex-start;
     gap: 10rem;
+
     background: black;
     padding: 4rem 6vw;
     color: white;
@@ -1087,6 +1264,7 @@ body {
     .input[type="password"] {
       width: 100%;
       background: transparent;
+
       border: 1px solid white;
       color: white;
       font-family: "Lato";
@@ -1095,12 +1273,15 @@ body {
     }
 
     .checkbox-row {
+      /* border: 1px solid red; */
+
       display: flex;
       align-items: center;
       gap: 8px;
 
       label {
         font-size: 0.9rem;
+
         text-transform: lowercase;
         margin: 0;
       }
@@ -1115,6 +1296,7 @@ body {
 
   .button-row {
     display: flex;
+
     align-items: center;
     justify-content: flex-start;
     gap: 2rem;
@@ -1122,19 +1304,20 @@ body {
 
     .sign-in {
       font-family: "Lato";
-      background: var(--accent);
+      background: var(--main-red);
       color: #fff;
       text-decoration: none;
       letter-spacing: 1px;
       font-size: 16px;
+
       padding: 15px 32px;
       border: none;
       cursor: pointer;
 
       &:hover {
         background: transparent;
-        border: 1px solid var(--accent);
-        color: var(--accent);
+        border: 1px solid var(--main-red);
+        color: var(--main-red);
       }
     }
 
@@ -1145,6 +1328,7 @@ body {
       text-decoration: none;
       letter-spacing: 1px;
       font-size: 16px;
+
       padding: 15px 32px;
       border: none;
       cursor: pointer;
@@ -1157,7 +1341,7 @@ body {
     }
 
     button {
-      width: auto;
+      width: 150px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -1165,20 +1349,24 @@ body {
   }
 
   .btn-tickets {
-    background: var(--accent);
+    background: var(--main-red);
+    /* border: 2px solid red; */
+
     font-family: "Lato";
     color: #fff;
     text-decoration: none;
     letter-spacing: 1px;
+    
     font-size: 24px;
     padding: 15px 32px;
+
     border: none;
     cursor: pointer;
     transition: all .2s ease;
 
     &:hover {
       background: transparent;
-      border: 1px solid var(--accent);
+      border: 1px solid var(--main-red);
     }
   }
 
@@ -1195,18 +1383,23 @@ body {
       width: 100%;
       height: auto;
       display: flex;
+
       align-items: center;
       justify-content: center;
       gap: 0.4rem;
       background: black;
+
       border: 1px solid #333;
       color: white;
+
       font-family: "Lato";
       font-size: 16px;
       font-weight: 500;
+
       white-space: nowrap;
       padding: 0.4em 0.8em;
       border-radius: 4px;
+
       cursor: pointer;
       text-transform: none;
 
@@ -1222,11 +1415,12 @@ body {
     flex: 1;
     max-width: 480px;
     height: 600px;
-    border: 1px solid var(--accent);
+    border: 1px solid var(--main-red);
     padding: 2rem;
 
     p {
       margin-bottom: 1.5rem;
+
       line-height: 1.6;
       font-family: "Lato";
       font-size: 28px;
@@ -1239,6 +1433,7 @@ body {
     align-items: center;
     justify-content: flex-start;
     margin-top: 3rem;
+
     margin-left: 2rem;
 
     img {
@@ -1262,10 +1457,13 @@ body {
 
   .footer-container {
     width: 100%;
+    /* border: 1px solid purple; */
+
     max-width: 1700px;
     margin: 0 auto;
     padding-left: 3rem;
     padding-right: 3rem;
+
     box-sizing: border-box;
   }
 
@@ -1276,6 +1474,7 @@ body {
       font-family: "Lato";
       font-size: clamp(22px, 1.5vw + 1rem, 30px);
       letter-spacing: 2px;
+    
       margin-bottom: 1.2rem;
       text-align: center;
     }
@@ -1286,6 +1485,7 @@ body {
     gap: 0.8rem;
     align-items: stretch;
     justify-content: center;
+
     margin-bottom: 1rem;
     max-width: 700px;
     margin-left: auto;
@@ -1297,6 +1497,7 @@ body {
       color: black;
       border: none;
       padding: 8px 10px;
+
       font-size: 14px;
       outline: none;
     }
@@ -1305,9 +1506,11 @@ body {
   .btn-subscribe {
     font-family: "Lato";
     font-size: 16px;
-    background: var(--accent);
+    background: var(--main-red);
+
     color: white;
     border: none;
+
     padding: 8px 14px;
     cursor: pointer;
     transition: all .2s ease;
@@ -1315,9 +1518,12 @@ body {
 
   .subscribe-agree {
     display: flex;
+    /* border: 1px solid blue; */
+
     font-family: "Lato";
     font-size: 8px;
     color: #cfcfcf;
+
     gap: .6rem;
     margin: .6rem 0 1.2rem;
     margin-left: 28.5rem;
@@ -1353,13 +1559,16 @@ body {
     align-items: flex-start;
     justify-content: center;
     text-align: center;
+
     gap: 1rem;
 
     .socials {
       display: flex;
+
       justify-content: center;
       align-items: center;
       gap: 13px;
+
       list-style: none;
       padding: 0;
       margin: 0;
@@ -1386,6 +1595,8 @@ body {
 
   .footer-columns {
     display: flex;
+    /* border: 1px solid yellow; */
+
     flex: 1;
     gap: 2.5rem;
     margin-left: 30rem;
@@ -1442,12 +1653,13 @@ body {
 
   .footer-bottom {
     background: #464646;
-    color: var(--text-light);
+    color: var(--main-white);
     font-size: 0.4rem;
     padding: 1.5rem 0 0.5rem 0;
     position: relative;
 
     hr {
+
       border: none;
       border-top: 2px solid white;
       opacity: 0.8;
@@ -1458,8 +1670,10 @@ body {
   .footer-bottom-content {
     font-family: "Lato";
     display: flex;
+
     justify-content: center;
     align-items: center;
+
     position: relative;
     flex-wrap: wrap;
     text-align: center;
@@ -1471,12 +1685,12 @@ body {
     }
 
     a {
-      color: var(--text-light);
+      color: var(--main-white);
       text-decoration: none;
       transition: color 0.2s ease;
 
       &:hover {
-        color: var(--accent);
+        color: var(--main-red);
       }
     }
   }
@@ -1484,6 +1698,7 @@ body {
   .footer-btn {
     position: absolute;
     right: 2vw;
+
     top: -2.8rem;
     padding: 8px;
   }
@@ -1508,13 +1723,22 @@ body {
     }
   }
 
-  .timeline-middle,
+  .timeline-middle {
+    display: none;
+  }
+
   .timeline-circle {
-    display: none !important;
+    display: none;
   }
 
 
-  .timeline-img,
+  .timeline-img {
+    flex: unset;
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto 12px auto;
+  }
+
   .timeline-content {
     flex: unset;
     width: 100%;
@@ -1537,6 +1761,7 @@ body {
       width: 100%;
       max-width: 420px;
       height: auto;
+
       border: 0;
       box-shadow: none;
     }
@@ -1555,14 +1780,19 @@ body {
       display: none;
     }
 
-    .tour-content .tour-left,
-    .tour-content .tour-right {
+    .tour-content .tour-phototour {
       width: 100%;
       padding: 0;
       align-items: center;
     }
 
-    .tour-content .tour-left {
+    .tour-content .tour-dates {
+      width: 100%;
+      padding: 0;
+      align-items: center;
+    }
+
+    .tour-content .tour-phototour {
       .band-img {
         width: 60%;
         height: auto;
@@ -1570,12 +1800,13 @@ body {
 
       .tour-logo {
         width: 20%;
+
         height: auto;
         margin-top: .5rem;
       }
     }
 
-    .tour-right {
+    .tour-dates {
       max-width: 900px;
     }
 
@@ -1600,18 +1831,18 @@ body {
   }
 }
 
-/* ====== <=780px ====== */
 @media (max-width: 780px) {
 
-  /* hero (antes @830) */
   .hero {
     .hero-nav {
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
-      display: flex !important;
+
+      display: flex;
       justify-content: space-between;
+
       align-items: center;
       padding: 12px 16px;
       background: transparent;
@@ -1622,9 +1853,12 @@ body {
         display: block;
       }
 
-      .hero-menu,
-      .hero-icons {
-        display: none !important;
+      .hero-menu {
+        display: none;
+      }
+
+      .burger {
+        display: flex;
       }
     }
 
@@ -1640,21 +1874,24 @@ body {
       .cta {
         margin-top: 3rem;
       }
+
+
     }
 
     .hero-background {
       background-image: url("img/FotoHero.jpg");
       background-size: cover;
       background-position: center top;
+
       background-repeat: no-repeat;
     }
   }
 
-  /* grammy (antes @900) */
   .grammy {
     overflow-x: hidden;
     flex-direction: column;
     align-items: center;
+
     padding: 20px;
     gap: 30px;
 
@@ -1699,7 +1936,9 @@ body {
       display: flex;
       flex-direction: column;
       align-items: center;
+
       padding: 18px 6vw;
+
       gap: 2rem;
 
       .bio-about {
@@ -1725,6 +1964,7 @@ body {
         .about-img {
           width: 92%;
           max-width: 520px;
+
           height: auto;
           margin-right: 10rem;
         }
@@ -1742,6 +1982,7 @@ body {
         justify-content: center;
         gap: 30px;
         margin-top: 3rem;
+
         padding: 0 20px;
 
         .member-card {
@@ -1749,6 +1990,7 @@ body {
           background: #111;
           border-radius: 8px;
           text-align: center;
+
           box-shadow: 0 0 12px rgba(0, 0, 0, .4);
 
           &:hover {
@@ -1774,6 +2016,7 @@ body {
             .age {
               color: #bbb;
               font-size: 15px;
+
               margin-bottom: 10px;
             }
 
@@ -1802,6 +2045,7 @@ body {
 
       p {
         font-size: 20px;
+
         line-height: 2rem;
         text-align: start;
       }
@@ -1879,6 +2123,7 @@ body {
     .tickets {
       .tickets-steps {
         display: flex;
+
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -1886,36 +2131,39 @@ body {
         gap: 2rem;
         width: 100%;
         max-width: 700px;
+
         margin: 0 auto;
         padding: 0 1.5rem;
         box-sizing: border-box;
       }
 
-      .tickets-left,
-      .tickets-right {
+      .tickets-phototour,
+      .tickets-dates {
         width: 100%;
         max-width: 600px;
         margin: 0 auto;
       }
 
-      .tickets-left {
+      .tickets-phototour {
         margin-left: auto;
       }
 
-      .ticket-dates {
+      .ticket-datestour {
         width: 100%;
         list-style: none;
         padding: 0;
         margin: 0 auto;
       }
 
-      .ticket-dates li {
+      .ticket-datestour li {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
         gap: 10px;
         background: #2f2f2f;
+
         border-radius: 10px;
         padding: 1rem;
         margin-bottom: 1rem;
@@ -1923,12 +2171,12 @@ body {
         width: 100%;
       }
 
-      .ticket-dates .btn-tickets {
+      .ticket-datestour .btn-tickets {
         align-self: center;
         margin-top: .5rem;
       }
 
-      .tickets-right .stadium-map {
+      .tickets-datestour .stadium-map {
         max-width: 100%;
         height: auto;
         border-radius: 8px;
@@ -1941,9 +2189,11 @@ body {
         padding: 1rem 1.5rem;
         border-radius: 8px;
         text-align: center;
+
         color: #fff;
         width: 100%;
         max-width: 400px;
+
         margin-left: auto;
         margin-right: auto;
       }
@@ -1962,10 +2212,12 @@ body {
         background: #2f2f2f;
         border-radius: 12px;
         padding: 16px;
+
         box-shadow: 0 10px 18px rgba(0, 0, 0, .4);
         width: 100%;
         max-width: 340px;
         display: flex;
+
         flex-direction: column;
         align-items: center;
         gap: 12px;
@@ -1975,10 +2227,12 @@ body {
         .media {
           width: 100%;
           height: auto;
+
           max-height: 360px;
           border-radius: 10px;
           background: #3a3a3a;
           display: flex;
+
           justify-content: center;
           align-items: center;
           overflow: hidden;
@@ -2012,15 +2266,15 @@ body {
         }
 
         .btn-solid {
-          background: var(--accent);
+          background: var(--main-red);
           color: white;
           border: none;
         }
 
         .btn-transparent {
           background: transparent;
-          color: var(--accent);
-          border: 1px solid var(--accent);
+          color: var(--main-red);
+          border: 1px solid var(--main-red);
         }
       }
     }
@@ -2039,6 +2293,7 @@ body {
       max-width: 680px;
       margin: 0 auto;
       padding: 1.5rem;
+
       gap: 1.5rem;
       justify-content: center;
       align-items: center;
@@ -2057,6 +2312,7 @@ body {
     .contact-info {
       max-width: 520px;
       width: 100%;
+
       height: auto;
       margin-top: 1.5rem;
       text-align: center;
@@ -2089,7 +2345,7 @@ body {
       max-width: 680px;
       margin: 1.5rem auto;
       border-radius: 12px;
-      overflow: hidden;
+      
 
       img {
         width: 100%;
@@ -2132,6 +2388,7 @@ body {
       margin: .8rem auto 1.2rem;
       max-width: 520px;
       justify-content: center;
+
       align-items: flex-start;
       text-align: left;
     }
@@ -2139,6 +2396,7 @@ body {
     .privacy-note {
       max-width: 520px;
       margin: 0 auto;
+
       text-align: center;
 
       a {
@@ -2153,6 +2411,7 @@ body {
     .footer-div {
       flex-direction: column;
       gap: 1.5rem;
+      
       align-items: center;
       text-align: center;
     }
@@ -2226,7 +2485,10 @@ body {
       letter-spacing: 1px;
     }
 
-    .subscribe-agree,
+    .subscribe-agree {
+      font-size: 10px;
+    }
+
     .privacy-note {
       font-size: 10px;
     }
